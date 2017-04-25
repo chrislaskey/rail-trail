@@ -1,0 +1,323 @@
+@import 'https://fonts.googleapis.com/css?family=Quicksand';
+
+html, body {
+  background: #fff;
+  color: #444;
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  height: 100%;
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+a,
+.uk-table a,
+.uk-link {
+  color: #9d1e9e;
+
+  &:hover{
+    color: #9d1e9e;
+  }
+}
+
+.page-container {
+  background: #fff;
+}
+
+.page-header {
+  .uk-navbar-nav > li > a,
+  .uk-navbar-item,
+  .uk-navbar-toggle {
+    font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: #777;
+    height: 100%;
+    padding: 0px 0px 0px 15px;
+    text-transform: none;
+  }
+
+  .page-titlebar {
+    align-self: stretch;
+    display: flex;
+    height: 75px;
+    justify-content: space-between;
+    padding: 0px 30px 0px 15px;
+
+    .uk-logo {
+      color: #333;
+      font-size: 1.25rem;
+      font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .community-name {
+      color: #888;
+      font-size: 1rem;
+      font-style: italic;
+      margin-left: 10px;
+    }
+  }
+
+  .page-navbar {
+    display: flex;
+    font-weight: 600;
+    justify-content: space-between;
+    padding: 0px;
+
+    li {
+      text-align: right;
+    }
+
+    .user {
+      display: flex;
+      justify-content: space-between;
+      margin-left: 15px;
+      text-transform: none;
+
+      .image {
+        border-radius: 500px;
+        background-size: cover;
+        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+        display: inline-block;
+        height: 40px;
+        width: 40px;
+      }
+
+      .name {
+        margin-left: 10px;
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.page-lead {
+  align-self: stretch;
+  background-color: #702071;
+  background-image: -webkit-radial-gradient(50% top, circle, rgba(162,84,182,0.4) 0%, rgba(162,84,182,0) 75%),-webkit-radial-gradient(right top, circle, #704aa2 0%, rgba(121,74,162,0) 57%);
+  background-image: radial-gradient(50% top, circle, rgba(162,84,182,0.4) 0%, rgba(162,84,182,0) 75%),radial-gradient(right top, circle, #704aa2 0%, rgba(121,74,162,0) 57%);
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 30px;
+
+  .page-heading {
+    h1, h2 {
+      color: #fff;
+      font-size: 2.25rem;
+      margin-bottom: 0;
+    }
+  }
+
+  .page-actions {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+
+    a {
+      border-radius: 500px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      color: #fff;
+      font-size: 0.875rem;
+      margin-left: 15px;
+      padding: 10px 15px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:hover {
+        border: 1px solid #fff;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.page-alerts {
+  margin: 30px 0px;
+  padding: 0px 30px;
+
+  .uk-alert {
+    margin: 0 0 15px 0;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  .uk-alert-danger {
+    background: #fff6f9;
+    border: 1px solid #fbd3e2;
+    color: #ec678a;
+  }
+
+  .uk-alert-primary {
+    background: #f1f8ff;
+    border: 1px solid #c6e3ff;
+    color: #589ee4;
+  }
+
+  .uk-alert-success {
+    background: #f7fff9;
+    border: 1px solid #b9f1c4;
+    color: #59b16b;
+  }
+}
+
+.page-main {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0px 0px 0px;
+  padding: 0px 30px 30px 30px;
+}
+
+.page-content {
+  width: 100%;
+
+  .document-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    h3 {
+      margin: 0;
+    }
+
+    .document-tags {
+      margin: 15px 0 0 0;
+
+      .tag:after {
+        content: ",";
+      }
+
+      .tag:last-child:after {
+        content: "";
+      }
+    }
+
+    li {
+      border-bottom: 1px solid #e2e2e2;
+      padding: 30px 0;
+
+      &:first-child {
+        padding-top: 0;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .uk-pagination {
+    border-top: 1px dotted #e2e2e2;
+    margin-top: 15px;
+    margin-left: 0px;
+    padding-top: 15px;
+    font-size: 0.875rem;
+
+    em {
+      color: #333;
+      font-style: normal;
+    }
+  }
+
+  .uk-radio:checked,
+  .uk-checkbox:checked,
+  .uk-checkbox:indeterminate {
+    background-color: #9d1e9e;
+  }
+
+  .uk-table {
+
+    small {
+      color: #888;
+      font-size: 0.75rem;
+    }
+  }
+
+  .uk-placeholder {
+    border: 1px dashed #ccc;
+    border: 1px solid #e2e2e2;
+
+    &:hover {
+      background: #f8f8f8;
+      border: 1px solid #e2e2e2;
+    }
+  }
+
+  .user-image {
+    border-radius: 500px;
+    background-size: cover;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    height: 35px;
+    width: 35px;
+  }
+}
+
+.page-sidebar {
+  font-size: 0.875rem;
+  margin-left: 45px;
+  min-width: 200px;
+  position: relative;
+  max-width: 400px;
+  width: 30%;
+
+  h4 {
+    margin-top: 0;
+  }
+
+  li {
+    margin-left: 0px;
+  }
+
+  .uk-list > li:nth-child(n+2) {
+    margin-top: 5px;
+  }
+
+  .sidebar-tag {
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .size {
+      border-radius: 3px;
+      color: rgba(0, 0, 0, 0.4);
+      font-size: 0.625rem;
+      font-weight: 600;
+      padding: 2px 0px;
+      text-align: center;
+      width: 24px;
+    }
+
+    &:hover {
+      text-decoration: none;
+      color: #9d1e9e;
+
+      .size {
+        background: #9d1e9e;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.page-footer {
+
+  .page-footer-inner {
+    border-top: 1px dotted #ddd;
+    margin: 0px 30px;
+    padding: 30px 0px;
+  }
+}

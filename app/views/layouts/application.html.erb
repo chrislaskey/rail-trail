@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailTrail</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render "layouts/head" %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "layouts/inline_javascript" %>
+    <div class="page-container">
+      <%= render "layouts/header" %>
+      <%= yield %>
+    </div>
+    <%= render "layouts/footer" %>
   </body>
 </html>
