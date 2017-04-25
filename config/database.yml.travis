@@ -1,0 +1,5 @@
+test:
+  adapter: postgresql
+  username: postgres
+  password:
+  database: rail_trail_test

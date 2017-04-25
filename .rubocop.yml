@@ -1,0 +1,77 @@
+AllCops:
+  Exclude:
+    - bin/*
+    - db/*
+    - db/migrate/*
+  DisabledByDefault: false
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: true
+  Max: 25
+
+Performance/Casecmp:
+  Enabled: false
+
+Style/AccessorMethodName:
+  Enabled: false
+
+Style/BlockComments:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyLinesAroundBlockBody:
+  Enabled: false
+
+Style/EmptyLinesAroundClassBody:
+  Enabled: true
+  Include:
+    - app
+  SupportedStyles: empty_lines
+
+Style/HashSyntax:
+  Enabled: true
+  Include:
+    - app
+    - test
+
+Style/ColonMethodCall:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
+
+Style/MultilineMethodCallIndentation:
+  Enabled: false
+
+Style/MutableConstant:
+  Enabled: false
+
+Style/EmptyMethod:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
