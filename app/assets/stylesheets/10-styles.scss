@@ -59,6 +59,14 @@ ul li {
     text-transform: none;
   }
 
+  h1, h2 {
+    box-shadow: 0px 0px 10px 3px rgba(143, 167, 211, 0.2);
+    color: #92a8d1;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+
   .page-titlebar {
     align-self: stretch;
     display: flex;
@@ -115,7 +123,6 @@ ul li {
 
 .page-lead {
   align-self: stretch;
-  box-shadow: 0px 0px 10px 3px rgba(143, 167, 211, 0.2);
   display: flex;
   justify-content: space-between;
   padding: 30px 30px;
@@ -123,8 +130,7 @@ ul li {
   .page-heading {
     h1, h2 {
       color: #92a8d1;
-      font-size: 1.25rem;
-      font-weight: 700;
+      font-size: 2.25rem;
       margin-bottom: 0;
     }
   }
