@@ -1,0 +1,31 @@
+<%= form_tag surveys_path do %> 
+  <h2>I am a...</h2>
+
+  <div class="question">
+    <%= label_tag "group_abutter", "Abutter" %>
+    <%= radio_button_tag :group, :abutter %>
+    <%= label_tag "group_resident", "Resident" %>
+    <%= radio_button_tag :group, :resident %>
+    <%= label_tag "group_other", "Other" %>
+    <%= radio_button_tag :group, :other %>
+  </div>
+
+  <div class="question">
+    <%= label_tag :address, "Street Address" %>
+    <%= text_field_tag :address %>
+    <p><small>Only required for abutters and residents. Used to prevent fraud. Individuals will NEVER be singled out. See <a href="#">how we use this data</a>.</small></p>
+  </div>
+
+  <h2>Positives</h2>
+  <%= element "radio", "pro-tourism", "Tourism boost" %>
+  <%= element "radio", "pro-property-values", "Increase property values" %>
+
+  <h2>Negatives</h2>
+  <%= element "radio", "con-property-value", "Decreased property value" %>
+  <%= element "radio", "con-loss-of-land", "Loss of land" %>
+  <%= element "radio", "con-privacy", "Privacy" %>
+  <%= element "radio", "con-safety", "Safety" %>
+  <%= element "radio", "con-security", "Security" %>
+
+  <%= submit_tag "Save", class: "uk-button uk-button-default" %>
+<% end %>

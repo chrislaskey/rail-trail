@@ -1,11 +1,17 @@
 class SurveysController < ApplicationController
 
-  before_action :find_survey, only: [:show, :new]
+  before_action :find_survey
 
   def show
   end
 
-  def new
+  def take
+  end
+
+  def create
+  end
+
+  def update
   end
 
   private
