@@ -10,18 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170430222041) do
+ActiveRecord::Schema.define(version: 20170430221358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
-    t.text     "string"
+    t.text     "answer"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "survey_id"
     t.integer  "question_id"
     t.integer  "user_id"
     t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
+    t.index ["survey_id"], name: "index_answers_on_survey_id", using: :btree
     t.index ["user_id"], name: "index_answers_on_user_id", using: :btree
   end
 
@@ -45,16 +47,6 @@ ActiveRecord::Schema.define(version: 20170430222041) do
     t.index ["user_id"], name: "index_surveys_on_user_id", using: :btree
   end
 
-  create_table "user_groups", force: :cascade do |t|
-    t.integer  "group"
-    t.text     "street_address"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.integer  "user_id"
-    t.index ["group"], name: "index_user_groups_on_group", using: :btree
-    t.index ["user_id"], name: "index_user_groups_on_user_id", using: :btree
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "provider"
     t.string   "uid"
@@ -71,18 +63,18 @@ ActiveRecord::Schema.define(version: 20170430222041) do
     t.string   "image"
     t.string   "token"
     t.string   "expires_at"
+    t.integer  "group"
+    t.text     "street_address"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
-    t.integer  "user_group_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["group"], name: "index_users_on_group", using: :btree
     t.index ["uid"], name: "index_users_on_uid", unique: true, using: :btree
-    t.index ["user_group_id"], name: "index_users_on_user_group_id", using: :btree
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "answers", "surveys"
   add_foreign_key "answers", "users"
   add_foreign_key "questions", "surveys"
   add_foreign_key "surveys", "users"
-  add_foreign_key "user_groups", "users"
-  add_foreign_key "users", "user_groups"
 end

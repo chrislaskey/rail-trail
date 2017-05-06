@@ -14,7 +14,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.datetime :last_sign_in_at
       t.string   :current_sign_in_ip
       t.string   :last_sign_in_ip
-  
+
       ## Custom fields
       t.string   :name
       t.string   :first_name
@@ -23,11 +23,14 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string   :image
       t.string   :token
       t.string   :expires_at
+      t.integer  :group
+      t.text     :street_address
 
-      t.timestamps 
+      t.timestamps
     end
 
     add_index :users, :email,              unique: true
     add_index :users, :uid,                unique: true
+    add_index :users, :group
   end
 end

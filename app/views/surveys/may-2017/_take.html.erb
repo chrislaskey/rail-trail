@@ -11,8 +11,8 @@
   </div>
 
   <div class="question">
-    <%= label_tag "user[address]", "Street Address" %>
-    <%= text_field_tag "user[address]" %>
+    <%= label_tag "user[street_address]", "Street Address" %>
+    <%= text_field_tag "user[street_address]" %>
     <p><small>Only required for abutters and residents. Used to prevent fraud. Individuals will NEVER be singled out. See <a href="#">how we use this data</a>.</small></p>
   </div>
 
@@ -47,17 +47,17 @@
   <h2>I am...</h2>
 
   <div class="question">
-    <%= radio_button_tag "answers[trail]", :yes %>
-    <%= label_tag "answers_trail_yes", "In favor of the idea of a Rail Trail" %>
+    <%= radio_button_tag "answers[support]", :yes %>
+    <%= label_tag "answers_support_yes", "In favor of the idea of a Rail Trail" %>
     <br/>
-    <%= radio_button_tag "answers[trail]", :idea_only %>
-    <%= label_tag "answers_trail_idea_only", "In favor of the idea of a Rail Trail, but not the current proposal" %>
+    <%= radio_button_tag "answers[support]", :idea_only %>
+    <%= label_tag "answers_support_idea_only", "In favor of the idea of a Rail Trail, but not the current proposal" %>
     <br/>
-    <%= radio_button_tag "answers[trail]", :no %>
-    <%= label_tag "answers_trail_no", "Not in favor of the idea of a Rail Trail" %>
+    <%= radio_button_tag "answers[support]", :no %>
+    <%= label_tag "answers_support_no", "Not in favor of the idea of a Rail Trail" %>
     <br/>
-    <%= radio_button_tag "answers[trail]", :undecided %>
-    <%= label_tag "answers_trail_undecided", "I do not have enough information to form an opinion" %>
+    <%= radio_button_tag "answers[support]", :undecided %>
+    <%= label_tag "answers_support_undecided", "I do not have enough information to form an opinion" %>
   </div>
 
   <h2>What could the town do better?</h2>

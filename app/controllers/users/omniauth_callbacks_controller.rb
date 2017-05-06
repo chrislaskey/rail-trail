@@ -1,18 +1,15 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
-  include Memberships
-
   def facebook
     find_user
     update_user
-    update_memberships(@user)
     flash.discard
 
     session["devise.facebook_data"] = user_data
 
     if @user.persisted?
       sign_in @user, event: :authentication
-      redirect_to request.env["omniauth.origin"] || "/documents"
+      redirect_to request.env["omniauth.origin"] || "/"
     else
       flash[:error] = "An error occured while trying to log in with Facebook"
       redirect_to root_path
