@@ -1,0 +1,66 @@
+<%= form_tag survey_path(@survey.slug) do %> 
+  <h2>I am a...</h2>
+
+  <div class="question">
+    <%= radio_button_tag "user[group]", :abutter %>
+    <%= label_tag "user_group_abutter", "Abutter" %>
+    <%= radio_button_tag "user[group]", :resident %>
+    <%= label_tag "user_group_resident", "Resident" %>
+    <%= radio_button_tag "user[group]", :other %>
+    <%= label_tag "user_group_other", "Other" %>
+  </div>
+
+  <div class="question">
+    <%= label_tag "user[address]", "Street Address" %>
+    <%= text_field_tag "user[address]" %>
+    <p><small>Only required for abutters and residents. Used to prevent fraud. Individuals will NEVER be singled out. See <a href="#">how we use this data</a>.</small></p>
+  </div>
+
+  <h2>Positives</h2>
+  <%= element "radio", "answers[pro_tourism]", "Tourism boost" %>
+  <%= element "radio", "answers[pro_property_values]", "Increase property values" %>
+  <%= element "radio", "answers[pro_personal_use]", "Personal Use" %>
+  <%= element "radio", "answers[pro_transportation]", "Transportation" %>
+  <%= element "radio", "answers[pro_cleanup_land]", "Cleanup land" %>
+  <%= element "radio", "answers[pro_other]", "Other" %>
+
+  <%= label_tag "answers[pro_top]", "What is your top positive?" %>
+  <select></select>
+
+  <h2>Negatives</h2>
+
+  <%# Very Concerned %>
+  <%# Little Concerned about it %>
+  <%# Not concerned about it %>
+
+  <%= element "radio", "answers[con_property_value]", "Decreased property value" %>
+  <%= element "radio", "answers[con_loss_of_land]", "Loss of land" %>
+  <%= element "radio", "answers[con_privacy]", "Privacy" %>
+  <%= element "radio", "answers[con_safety]", "Safety and Security" %>
+  <%= element "radio", "answers[con_building_costs]", "Planning and building costs" %>
+  <%= element "radio", "answers[con_maintenance_costs]", "Long term maintenance costs" %>
+  <%= element "radio", "answers[con_other]", "Other" %>
+
+  <%= label_tag "answers[con_top]", "What is your top concern?" %>
+  <select></select>
+
+  <h2>I am...</h2>
+
+  <div class="question">
+    <%= radio_button_tag "answers[trail]", :yes %>
+    <%= label_tag "answers_trail_yes", "In favor of the idea of a Rail Trail" %>
+    <br/>
+    <%= radio_button_tag "answers[trail]", :idea_only %>
+    <%= label_tag "answers_trail_idea_only", "In favor of the idea of a Rail Trail, but not the current proposal" %>
+    <br/>
+    <%= radio_button_tag "answers[trail]", :no %>
+    <%= label_tag "answers_trail_no", "Not in favor of the idea of a Rail Trail" %>
+    <br/>
+    <%= radio_button_tag "answers[trail]", :undecided %>
+    <%= label_tag "answers_trail_undecided", "I do not have enough information to form an opinion" %>
+  </div>
+
+  <h2>What could the town do better?</h2>
+
+  <%= submit_tag "Save", class: "uk-button uk-button-default" %>
+<% end %>
