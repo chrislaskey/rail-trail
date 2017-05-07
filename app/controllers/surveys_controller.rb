@@ -1,7 +1,7 @@
 class SurveysController < ApplicationController
 
   before_action :find_survey
-  before_action :find_questions, only: [:create]
+  before_action :find_questions, only: [:submit]
 
   def show
     @include_charts = true
@@ -50,15 +50,16 @@ class SurveysController < ApplicationController
 
   def calculate_results
     @results_by_question = Answer
-      .where(survey: @survey)
       .joins(:question)
+      .where(survey: @survey)
       .group(:"questions.slug")
       .count
 
     @results_by_answer = Answer
-      .where(survey: @survey)
       .joins(:question)
-      .group(:"questions.slug", :answer)
+      .where(survey: @survey)
+      .where("questions.response_type" => :multiple_choice)
+      .group("questions.slug", :answer)
       .count
       .reduce({}) do |acc, (key, value)|
         # Query returns compound key, e.g. {[1,2,3]: 5}
@@ -69,9 +70,10 @@ class SurveysController < ApplicationController
       end
 
     @results_by_group = Answer
-      .where(survey: @survey)
       .joins(:question, :user)
-      .group(:"questions.slug", :answer, :"users.group")
+      .where(survey: @survey)
+      .where("questions.response_type" => :multiple_choice)
+      .group("questions.slug", :answer, "users.group")
       .count
       .reduce({}) do |acc, (key, value)|
         # Query returns compound key, e.g. {[1,2,3]: 5}
@@ -109,8 +111,9 @@ class SurveysController < ApplicationController
       :con_other,
       :con_top,
       :support,
-      :selectment_vote,
-      :town_action
+      :selectmen_vote,
+      :town_action,
+      :survey_feedback
     ).reject do |_key, value|
       value.blank?
     end

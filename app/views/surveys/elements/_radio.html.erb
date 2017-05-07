@@ -1,17 +1,33 @@
-<div class="question question-radio">
+<div class="question question-radio <%= classes %>">
   <div class="question-radio-label">
     <%= label_tag @name, label, class: "radio-label" %>
   </div>
   <div class="question-radio-buttons">
+    <%= label_tag "#{name}_1", "Strongly Disagree" %>
     <%= radio_button_tag name, 1, (1 == current), class: "uk-radio" %>
-    <%# <%= label_tag "#{name}_5", "Strong Disagree" %1> %>
+    <%= label_tag "#{name}_2", "Disagree" %>
     <%= radio_button_tag name, 2, (2 == current), class: "uk-radio" %>
-    <%# <%= label_tag "#{name}_4", "Disagree" %1> %>
+    <%= label_tag "#{name}_3", "Neutral" %>
     <%= radio_button_tag name, 3, (3 == current), class: "uk-radio" %>
-    <%# <%= label_tag "#{name}_3", "Neutral" %1> %>
+    <%= label_tag "#{name}_4", "Agree" %>
     <%= radio_button_tag name, 4, (4 == current), class: "uk-radio" %>
-    <%# <%= label_tag "#{name}_2", "Agree" %1> %>
+    <%= label_tag "#{name}_5", "Strongly Agree" %>
     <%= radio_button_tag name, 5, (5 == current), class: "uk-radio" %>
-    <%# <%= label_tag "#{name}_1", "Strongly Agree" %1> %>
   </div>
 </div>
+
+<style>
+  .question-radio-label {
+    float:left;
+    width: 40%;
+  }
+  .question-radio-buttons {
+    float:left;
+    width: 60%;
+  }
+  .question-radio-buttons label {
+    font-family: sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+  }
+</style>

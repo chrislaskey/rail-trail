@@ -19,31 +19,42 @@
   <h2>Benefits</h2>
 
   <p>I value the potential...</p>
-
   <%= element "radio", "answers[pro_tourism]", "Increase in tourism" %>
   <%= element "radio", "answers[pro_property_values]", "Increase in property values" %>
-  <%= element "radio", "answers[pro_personal_use]", "Recreation area" %>
+  <%= element "radio", "answers[pro_personal_use]", "Recreational space" %>
   <%= element "radio", "answers[pro_transportation]", "Transportation path" %>
   <%= element "radio", "answers[pro_cleanup_land]", "Beautification of land" %>
-  <%= element "radio", "answers[pro_other]", "Other" %>
 
-  <%= label_tag "answers[pro_top]", "What is your top positive?" %>
-  <select></select>
+  <p>Of these I most value the potential...</p>
+  <select name="answers[pro_top]">
+    <option value=""></option>
+    <option value="pro_tourism">Increase in tourism</option>
+    <option value="pro_property_values">Increase in property values</option>
+    <option value="pro_personal_use">Recreational space</option>
+    <option value="pro_transportation">Transportation path</option>
+    <option value="pro_cleanup_land">Beautification of land</option>
+  </select>
 
   <h2>Concerns</h2>
 
-  <p>I am concerned about... </p>
-
-  <%= element "radio", "answers[con_property_value]", "Decreased property value" %>
+  <p>I am concerned about potential... </p>
+  <%= element "radio", "answers[con_property_value]", "Decrease in property values" %>
   <%= element "radio", "answers[con_loss_of_land]", "Loss of land" %>
   <%= element "radio", "answers[con_privacy]", "Privacy" %>
   <%= element "radio", "answers[con_safety]", "Safety and Security" %>
-  <%= element "radio", "answers[con_building_costs]", "Planning and building costs" %>
+  <%= element "radio", "answers[con_building_costs]", "Initial planning and building costs" %>
   <%= element "radio", "answers[con_maintenance_costs]", "Long term maintenance costs" %>
-  <%= element "radio", "answers[con_other]", "Other" %>
 
-  <%= label_tag "answers[con_top]", "What is your top concern?" %>
-  <select></select>
+  <p>Of these I most concerned about potential...</p>
+  <select name="answers[con_top]">
+    <option value=""></option>
+    <option value="con_property_value">Decrease in property values</option>
+    <option value="con_loss_of_land">Loss of land</option>
+    <option value="con_privacy">Privacy</option>
+    <option value="con_safety">Safety and Security</option>
+    <option value="con_building_costs">Initial planning and building costs</option>
+    <option value="con_maintenance_costs">Long term maintenance costs</option>
+  </select>
 
   <h2>I am...</h2>
 
@@ -75,20 +86,20 @@
   <p>I believe the Swampscott Board of Selectmen should...</p>
 
   <div class="question">
-    <%= radio_button_tag "answers[selectment_vote]", :approve %>
-    <%= label_tag "answers_selectment_vote_approve", "Approve both Phase II and Phase III" %>
+    <%= radio_button_tag "answers[selectmen_vote]", :approve %>
+    <%= label_tag "answers_selectmen_vote_approve", "Approve both Phase II and Phase III" %>
     <br/>
-    <%= radio_button_tag "answers[selectment_vote]", :first_only %>
-    <%= label_tag "answers_selectment_vote_first_only", "Amend the article and only approve Phase II" %>
+    <%= radio_button_tag "answers[selectmen_vote]", :first_only %>
+    <%= label_tag "answers_selectmen_vote_first_only", "Amend the article and only approve Phase II" %>
     <br/>
-    <%= radio_button_tag "answers[selectment_vote]", :delay %>
-    <%= label_tag "answers_selectment_vote_delay", "Delay voting on either phases" %>
+    <%= radio_button_tag "answers[selectmen_vote]", :delay %>
+    <%= label_tag "answers_selectmen_vote_delay", "Delay voting on either phases" %>
     <br/>
-    <%= radio_button_tag "answers[selectment_vote]", :against %>
-    <%= label_tag "answers_selectment_vote_against", "Vote against both phases" %>
+    <%= radio_button_tag "answers[selectmen_vote]", :against %>
+    <%= label_tag "answers_selectmen_vote_against", "Vote against both phases" %>
     <br/>
-    <%= radio_button_tag "answers[selectment_vote]", :undecided %>
-    <%= label_tag "answers_selectment_vote_undecided", "No opinion" %>
+    <%= radio_button_tag "answers[selectmen_vote]", :undecided %>
+    <%= label_tag "answers_selectmen_vote_undecided", "No opinion" %>
   </div>
 
   <h2>Next Steps</h2>
@@ -96,6 +107,12 @@
   <p>What actions can the town take to address concerns and increase support for the project?</p>
 
   <%= text_area_tag "answers[town_action]", nil, rows: 6 %>
+
+  <h2>Survey Feedback</h2>
+
+  <p>How can we improve the survey in the future? What would you like to see asked next?</p>
+
+  <%= text_area_tag "answers[survey_feedback]", nil, rows: 6 %>
 
   <%= submit_tag "Save", class: "uk-button uk-button-default" %>
 <% end %>
