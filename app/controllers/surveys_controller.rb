@@ -79,7 +79,9 @@ class SurveysController < ApplicationController
       :con_maintenance_costs,
       :con_other,
       :con_top,
-      :trail
+      :support,
+      :selectment_vote,
+      :town_action
     ).reject do |_key, value|
       value.blank?
     end

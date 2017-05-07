@@ -29,10 +29,6 @@
 
   <h2>Negatives</h2>
 
-  <%# Very Concerned %>
-  <%# Little Concerned about it %>
-  <%# Not concerned about it %>
-
   <%= element "radio", "answers[con_property_value]", "Decreased property value" %>
   <%= element "radio", "answers[con_loss_of_land]", "Loss of land" %>
   <%= element "radio", "answers[con_privacy]", "Privacy" %>
@@ -60,7 +56,41 @@
     <%= label_tag "answers_support_undecided", "I do not have enough information to form an opinion" %>
   </div>
 
-  <h2>What could the town do better?</h2>
+  <h2>Town Vote</h2>
+
+  <p>On May 15, 2017 the Swampscott Board of Selectmen will be voting to approve $850,000 of town funds for:</p>
+
+  <ol>
+    <li>Phase II - Fund Engineering plan</li>
+    <li>Phase III - Acquiring land</li>
+  </ol>
+
+  <p>For complete details see <a href="http://www.town.swampscott.ma.us/Public_Documents/SwampscottMA_Calendar/S058A43EE-05A4A9C3?formid=161">Article 18 of the Town Meeting Warrant</a></p>
+
+  <p>I believe the Swampscott Board of Selectmen should...</p>
+
+  <div class="question">
+    <%= radio_button_tag "answers[selectment_vote]", :approve %>
+    <%= label_tag "answers_selectment_vote_approve", "Vote in favor of Phase II and Phase III" %>
+    <br/>
+    <%= radio_button_tag "answers[selectment_vote]", :first_only %>
+    <%= label_tag "answers_selectment_vote_first_only", "Ammend the article and only approve Phase II" %>
+    <br/>
+    <%= radio_button_tag "answers[selectment_vote]", :delay %>
+    <%= label_tag "answers_selectment_vote_delay", "Delay voting on both phases" %>
+    <br/>
+    <%= radio_button_tag "answers[selectment_vote]", :against %>
+    <%= label_tag "answers_selectment_vote_against", "Vote against both phases" %>
+    <br/>
+    <%= radio_button_tag "answers[selectment_vote]", :undecided %>
+    <%= label_tag "answers_selectment_vote_undecided", "No opinion" %>
+  </div>
+
+  <h2>Next Steps</h2>
+
+  <p>What actions can the town take to address concerns and increase support for the project?</p>
+
+  <%= text_area_tag "answers[town_action]", nil, rows: 6 %>
 
   <%= submit_tag "Save", class: "uk-button uk-button-default" %>
 <% end %>

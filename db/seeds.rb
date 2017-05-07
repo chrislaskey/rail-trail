@@ -26,3 +26,5 @@ create_question(survey, "con_other", "Other")
 create_question(survey, "con_top", "Top Concern")
 
 create_question(survey, "support", "Support the idea of Rail Trail")
+create_question(survey, "selectmen_vote", "Vote on Article 18")
+create_question(survey, "town_action", "Town Action")
