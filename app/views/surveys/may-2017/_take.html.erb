@@ -2,73 +2,67 @@
   <h2>I am a...</h2>
 
   <div class="question">
-    <%= radio_button_tag "user[group]", :abutter %>
+    <%= radio_button_tag "user[group]", "abutter", current_user.group == "abutter" %>
     <%= label_tag "user_group_abutter", "Abutter" %>
-    <%= radio_button_tag "user[group]", :resident %>
+    <%= radio_button_tag "user[group]", "resident", current_user.group == "resident" %>
     <%= label_tag "user_group_resident", "Resident" %>
-    <%= radio_button_tag "user[group]", :other %>
+    <%= radio_button_tag "user[group]", "other", current_user.group == "other" %>
     <%= label_tag "user_group_other", "Other" %>
-  </div>
-
-  <div class="question">
-    <%= label_tag "user[street_address]", "Street Address" %>
-    <%= text_field_tag "user[street_address]" %>
-    <p><small>Only required for abutters and residents. Used to prevent fraud. Individuals will NEVER be singled out. See <a href="#">how we use this data</a>.</small></p>
   </div>
 
   <h2>Benefits</h2>
 
   <p>I value the potential...</p>
-  <%= element "radio", "answers[pro_tourism]", "Increase in tourism" %>
-  <%= element "radio", "answers[pro_property_values]", "Increase in property values" %>
-  <%= element "radio", "answers[pro_personal_use]", "Recreational space" %>
-  <%= element "radio", "answers[pro_transportation]", "Transportation path" %>
-  <%= element "radio", "answers[pro_cleanup_land]", "Beautification of land" %>
+  <%= element "radio", "answers[pro_tourism]", "Increase in tourism", get_answer("pro_tourism") %>
+  <%= element "radio", "answers[pro_property_values]", "Increase in property values", get_answer("pro_property_values") %>
+  <%= element "radio", "answers[pro_personal_use]", "Recreational space", get_answer("pro_personal_use") %>
+  <%= element "radio", "answers[pro_transportation]", "Transportation path", get_answer("pro_transportation") %>
+  <%= element "radio", "answers[pro_cleanup_land]", "Beautification of land", get_answer("pro_cleanup_land") %>
 
   <p>Of these I most value the potential...</p>
-  <select name="answers[pro_top]">
-    <option value=""></option>
-    <option value="pro_tourism">Increase in tourism</option>
-    <option value="pro_property_values">Increase in property values</option>
-    <option value="pro_personal_use">Recreational space</option>
-    <option value="pro_transportation">Transportation path</option>
-    <option value="pro_cleanup_land">Beautification of land</option>
-  </select>
+  <%= select_tag "answers[pro_top]", options_for_select([
+    ["", ""],
+    ["Increase in tourism", "pro_tourism"],
+    ["Increase in property values", "pro_property_values"],
+    ["Recreational space", "pro_personal_use"],
+    ["Transportation path", "pro_transportation"],
+    ["Beautification of land", "pro_cleanup_land"]
+  ], get_answer("pro_top")) %>
 
   <h2>Concerns</h2>
 
   <p>I am concerned about potential... </p>
-  <%= element "radio", "answers[con_property_value]", "Decrease in property values" %>
-  <%= element "radio", "answers[con_loss_of_land]", "Loss of land" %>
-  <%= element "radio", "answers[con_privacy]", "Privacy" %>
-  <%= element "radio", "answers[con_safety]", "Safety and Security" %>
-  <%= element "radio", "answers[con_building_costs]", "Initial planning and building costs" %>
-  <%= element "radio", "answers[con_maintenance_costs]", "Long term maintenance costs" %>
+  <%= element "radio", "answers[con_property_value]", "Decrease in property values", get_answer("con_property_value") %>
+  <%= element "radio", "answers[con_loss_of_land]", "Loss of land", get_answer("con_loss_of_land") %>
+  <%= element "radio", "answers[con_privacy]", "Privacy", get_answer("con_privacy") %>
+  <%= element "radio", "answers[con_safety]", "Safety and Security", get_answer("con_safety") %>
+  <%= element "radio", "answers[con_building_costs]", "Initial planning and building costs", get_answer("con_building_costs") %>
+  <%= element "radio", "answers[con_maintenance_costs]", "Long term maintenance costs", get_answer("con_maintenance_costs") %>
 
   <p>Of these I most concerned about potential...</p>
-  <select name="answers[con_top]">
-    <option value=""></option>
-    <option value="con_property_value">Decrease in property values</option>
-    <option value="con_loss_of_land">Loss of land</option>
-    <option value="con_privacy">Privacy</option>
-    <option value="con_safety">Safety and Security</option>
-    <option value="con_building_costs">Initial planning and building costs</option>
-    <option value="con_maintenance_costs">Long term maintenance costs</option>
-  </select>
+  <%= select_tag "answers[con_top]", options_for_select([
+    ["", ""],
+    ["Decrease in property values", "con_property_value"],
+    ["Loss of land", "con_loss_of_land"],
+    ["Privacy", "con_privacy"],
+    ["Safety and Security", "con_safety"],
+    ["Initial planning and building costs", "con_building_costs"],
+    ["Long term maintenance costs", "con_maintenance_costs"],
+  ], get_answer("con_top")) %>
 
   <h2>I am...</h2>
 
   <div class="question">
-    <%= radio_button_tag "answers[support]", :yes %>
+    <%= radio_button_tag "answers[support]", "yes", get_answer("support") == "yes" %>
     <%= label_tag "answers_support_yes", "In favor of the idea of a Rail Trail" %>
     <br/>
-    <%= radio_button_tag "answers[support]", :idea_only %>
+    <%= radio_button_tag "answers[support]", "idea_only", get_answer("support") == "idea_only" %>
     <%= label_tag "answers_support_idea_only", "In favor of the idea of a Rail Trail, but not the current proposal" %>
     <br/>
-    <%= radio_button_tag "answers[support]", :no %>
+    <%= radio_button_tag "answers[support]", "no", get_answer("support") == "no" %>
     <%= label_tag "answers_support_no", "Not in favor of the idea of a Rail Trail" %>
     <br/>
-    <%= radio_button_tag "answers[support]", :undecided %>
+    <%= radio_button_tag "answers[support]", "undecided", get_answer("support") == "undecided" %>
     <%= label_tag "answers_support_undecided", "I do not have enough information to form an opinion" %>
   </div>
 
@@ -86,19 +80,19 @@
   <p>I believe the Swampscott Board of Selectmen should...</p>
 
   <div class="question">
-    <%= radio_button_tag "answers[selectmen_vote]", :approve %>
+    <%= radio_button_tag "answers[selectmen_vote]", "approve", get_answer("selectmen_vote") == "approve" %>
     <%= label_tag "answers_selectmen_vote_approve", "Approve both Phase II and Phase III" %>
     <br/>
-    <%= radio_button_tag "answers[selectmen_vote]", :first_only %>
+    <%= radio_button_tag "answers[selectmen_vote]", "first_only", get_answer("selectmen_vote") == "first_only" %>
     <%= label_tag "answers_selectmen_vote_first_only", "Amend the article and only approve Phase II" %>
     <br/>
-    <%= radio_button_tag "answers[selectmen_vote]", :delay %>
+    <%= radio_button_tag "answers[selectmen_vote]", "delay", get_answer("selectmen_vote") == "delay" %>
     <%= label_tag "answers_selectmen_vote_delay", "Delay voting on either phases" %>
     <br/>
-    <%= radio_button_tag "answers[selectmen_vote]", :against %>
+    <%= radio_button_tag "answers[selectmen_vote]", "against", get_answer("selectmen_vote") == "against" %>
     <%= label_tag "answers_selectmen_vote_against", "Vote against both phases" %>
     <br/>
-    <%= radio_button_tag "answers[selectmen_vote]", :undecided %>
+    <%= radio_button_tag "answers[selectmen_vote]", "undecided", get_answer("selectmen_vote") == "undecided" %>
     <%= label_tag "answers_selectmen_vote_undecided", "No opinion" %>
   </div>
 
@@ -106,13 +100,13 @@
 
   <p>What actions can the town take to address concerns and increase support for the project?</p>
 
-  <%= text_area_tag "answers[town_action]", nil, rows: 6 %>
+  <%= text_area_tag "answers[town_action]", get_answer("town_action"), rows: 6 %>
 
   <h2>Survey Feedback</h2>
 
   <p>How can we improve the survey in the future? What would you like to see asked next?</p>
 
-  <%= text_area_tag "answers[survey_feedback]", nil, rows: 6 %>
+  <%= text_area_tag "answers[survey_feedback]", get_answer("survey_feedback"), rows: 6 %>
 
   <%= submit_tag "Save", class: "uk-button uk-button-default" %>
 <% end %>

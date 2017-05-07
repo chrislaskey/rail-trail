@@ -2,6 +2,7 @@ class SurveysController < ApplicationController
 
   before_action :find_survey
   before_action :find_questions, only: [:submit]
+  before_action :find_user_answers, only: [:take]
 
   def show
     @include_charts = true
@@ -29,6 +30,13 @@ class SurveysController < ApplicationController
     @questions ||= Question.where(
       survey: @survey
     )
+  end
+
+  def find_user_answers
+    @answers ||= Answer
+      .includes(:question)
+      .where(survey: @survey, user: current_user)
+      .group_by { |answer| answer.question.slug }
   end
 
   def update_user

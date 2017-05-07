@@ -1,7 +1,19 @@
 module SurveysHelper
-  def element(type, name, label, current: nil)
+  def element(type, name, label, current = nil)
     update_call_count
-    render partial: "surveys/elements/#{type}", locals: { name: name, label: label, current: current, classes: classes }
+    render  partial: "surveys/elements/#{type}",
+            locals: {
+              name: name,
+              label: label,
+              current: current,
+              classes: classes
+            }
+  end
+
+  def get_answer(key)
+    records = @answers.fetch(key, nil)
+    return nil if records.empty?
+    records.first.answer.to_s
   end
 
   private
