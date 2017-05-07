@@ -1,39 +1,89 @@
-<canvas id="my-chart" width="400" height="100"></canvas>
+<script>
+  var dataByQuestion = <%= raw @results_by_question.to_json %>
+  var dataByAnswer = <%= raw @results_by_answer.to_json %>
+  var dataByGroup = <%= raw @results_by_group.to_json %>
+  var userGroups = <%= raw User.groups.to_json %>
+
+  var getResultsByQuestion = function(question) {
+    return dataByQuestion[question]
+  }
+
+  var getResultsByAnswer = function(question, answer) {
+    var key = [question, answer].join(":")
+
+    return dataByAnswer[key]
+  }
+
+  var getResultsByGroup = function(question, answer, group) {
+    var groupId = userGroups[group]
+    var key = [question, answer, groupId].join(":")
+
+    return dataByGroup[key]
+  }
+
+  var getAnswerPercent = function (question, answer) {
+    var total = getResultsByQuestion(question)
+    var local = getResultsByAnswer(question, answer)
+
+    return (local/total) * 100
+  }
+</script>
+
+<canvas id="first-answer" width="400" height="30"></canvas>
 
 <script>
-  var ctx = document.getElementById("my-chart")
+  var ctx = document.getElementById("first-answer")
   var myChart = new Chart(ctx, {
     type: "horizontalBar",
     data: {
-      labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-      datasets: [{
-        label: "# of Votes",
-        data: [12, 19, 3, 5, 2, 3],
-        backgroundColor: [
-          "rgba(255, 99, 132, 0.2)",
-          "rgba(54, 162, 235, 0.2)",
-          "rgba(255, 206, 86, 0.2)",
-          "rgba(75, 192, 192, 0.2)",
-          "rgba(153, 102, 255, 0.2)",
-          "rgba(255, 159, 64, 0.2)"
-        ],
-        borderColor: [
-          "rgba(255,99,132,1)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(255, 206, 86, 1)",
-          "rgba(75, 192, 192, 1)",
-          "rgba(153, 102, 255, 1)",
-          "rgba(255, 159, 64, 1)"
-        ],
-        borderWidth: 1
-      }]
+      labels: [""],
+      datasets: [
+        {
+          label: "Strong Agree",
+          data: [getAnswerPercent("pro_tourism", "1")],
+          backgroundColor: ["rgb(0, 170, 94)"],
+          borderColor: ["rgb(0, 170, 94)"],
+          borderWidth: 1
+        },
+        {
+          label: "Agree",
+          data: [getAnswerPercent("pro_tourism", "2")],
+          backgroundColor: ["rgb(149, 209, 60)"],
+          borderColor: ["rgb(149, 209, 60)"],
+          borderWidth: 1
+        },
+        {
+          label: "Neutral",
+          data: [getAnswerPercent("pro_tourism", "3")],
+          backgroundColor: ["rgb(254, 213, 0)"],
+          borderColor: ["rgb(254, 213, 0)"],
+          borderWidth: 1
+        },
+        {
+          label: "Disagree",
+          data: [getAnswerPercent("pro_tourism", "4")],
+          backgroundColor: ["rgb(254, 133, 0)"],
+          borderColor: ["rgb(254, 133, 0)"],
+          borderWidth: 1
+        },
+        {
+          label: "Strong Disagree",
+          data: [getAnswerPercent("pro_tourism", "5")],
+          backgroundColor: ["rgb(255, 92, 73)"],
+          borderColor: ["rgb(255, 92, 73)"],
+          borderWidth: 1
+        }
+      ]
     },
     options: {
       scales: {
         xAxes: [{
-          ticks: {
-            beginAtZero:true
-          }
+          display: true,
+          stacked: true,
+        }],
+        yAxes: [{
+          display: false,
+          stacked: true
         }]
       }
     }

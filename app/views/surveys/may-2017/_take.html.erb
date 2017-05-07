@@ -1,4 +1,4 @@
-<%= form_tag survey_path(@survey.slug) do %> 
+<%= form_tag submit_survey_path(@survey.slug) do %>
   <h2>I am a...</h2>
 
   <div class="question">
@@ -18,11 +18,13 @@
 
   <h2>Benefits</h2>
 
-  <%= element "radio", "answers[pro_tourism]", "Tourism boost" %>
-  <%= element "radio", "answers[pro_property_values]", "Increase property values" %>
-  <%= element "radio", "answers[pro_personal_use]", "Personal Use" %>
-  <%= element "radio", "answers[pro_transportation]", "Transportation" %>
-  <%= element "radio", "answers[pro_cleanup_land]", "Cleanup land" %>
+  <p>I value the potential...</p>
+
+  <%= element "radio", "answers[pro_tourism]", "Increase in tourism" %>
+  <%= element "radio", "answers[pro_property_values]", "Increase in property values" %>
+  <%= element "radio", "answers[pro_personal_use]", "Recreation area" %>
+  <%= element "radio", "answers[pro_transportation]", "Transportation path" %>
+  <%= element "radio", "answers[pro_cleanup_land]", "Beautification of land" %>
   <%= element "radio", "answers[pro_other]", "Other" %>
 
   <%= label_tag "answers[pro_top]", "What is your top positive?" %>
@@ -30,9 +32,7 @@
 
   <h2>Concerns</h2>
 
-  <%# Very Concerned %>
-  <%# Little Concerned about it %>
-  <%# Not concerned about it %>
+  <p>I am concerned about... </p>
 
   <%= element "radio", "answers[con_property_value]", "Decreased property value" %>
   <%= element "radio", "answers[con_loss_of_land]", "Loss of land" %>
