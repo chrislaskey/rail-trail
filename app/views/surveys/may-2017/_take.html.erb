@@ -16,7 +16,8 @@
     <p><small>Only required for abutters and residents. Used to prevent fraud. Individuals will NEVER be singled out. See <a href="#">how we use this data</a>.</small></p>
   </div>
 
-  <h2>Positives</h2>
+  <h2>Benefits</h2>
+
   <%= element "radio", "answers[pro_tourism]", "Tourism boost" %>
   <%= element "radio", "answers[pro_property_values]", "Increase property values" %>
   <%= element "radio", "answers[pro_personal_use]", "Personal Use" %>
@@ -27,7 +28,11 @@
   <%= label_tag "answers[pro_top]", "What is your top positive?" %>
   <select></select>
 
-  <h2>Negatives</h2>
+  <h2>Concerns</h2>
+
+  <%# Very Concerned %>
+  <%# Little Concerned about it %>
+  <%# Not concerned about it %>
 
   <%= element "radio", "answers[con_property_value]", "Decreased property value" %>
   <%= element "radio", "answers[con_loss_of_land]", "Loss of land" %>
@@ -65,19 +70,19 @@
     <li>Phase III - Acquiring land</li>
   </ol>
 
-  <p>For complete details see <a href="http://www.town.swampscott.ma.us/Public_Documents/SwampscottMA_Calendar/S058A43EE-05A4A9C3?formid=161">Article 18 of the Town Meeting Warrant</a></p>
+  <p>For complete details see <a target="_blank" href="http://www.town.swampscott.ma.us/Public_Documents/SwampscottMA_Calendar/S058A43EE-05A4A9C3?formid=161">Article 18 of the Town Meeting Warrant</a>.</p>
 
   <p>I believe the Swampscott Board of Selectmen should...</p>
 
   <div class="question">
     <%= radio_button_tag "answers[selectment_vote]", :approve %>
-    <%= label_tag "answers_selectment_vote_approve", "Vote in favor of Phase II and Phase III" %>
+    <%= label_tag "answers_selectment_vote_approve", "Approve both Phase II and Phase III" %>
     <br/>
     <%= radio_button_tag "answers[selectment_vote]", :first_only %>
-    <%= label_tag "answers_selectment_vote_first_only", "Ammend the article and only approve Phase II" %>
+    <%= label_tag "answers_selectment_vote_first_only", "Amend the article and only approve Phase II" %>
     <br/>
     <%= radio_button_tag "answers[selectment_vote]", :delay %>
-    <%= label_tag "answers_selectment_vote_delay", "Delay voting on both phases" %>
+    <%= label_tag "answers_selectment_vote_delay", "Delay voting on either phases" %>
     <br/>
     <%= radio_button_tag "answers[selectment_vote]", :against %>
     <%= label_tag "answers_selectment_vote_against", "Vote against both phases" %>

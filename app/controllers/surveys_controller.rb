@@ -5,6 +5,7 @@ class SurveysController < ApplicationController
   before_action :find_answers, only: [:create]
 
   def show
+    @charts = true
   end
 
   def take
