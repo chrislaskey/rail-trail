@@ -9,6 +9,10 @@
 
 <div class="page-main">
   <div class="page-content">
-    <%= render "surveys/#{@survey}/take" %>
+    <% if current_user.present? %>
+      <%= render "surveys/#{@survey}/take" %>
+    <% else %>
+      <%= render "surveys/#{@survey}/login" %>
+    <% end %>
   </div>
 </div>
