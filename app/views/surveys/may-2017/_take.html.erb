@@ -19,7 +19,7 @@
   <%= element "radio", "answers[pro_transportation]", "Transportation path", get_answer("pro_transportation") %>
   <%= element "radio", "answers[pro_cleanup_land]", "Beautification of land", get_answer("pro_cleanup_land") %>
 
-  <p>Of these, I most value the potential...</p>
+  <p>Of these I most value the potential...</p>
   <%= select_tag "answers[pro_top]", options_for_select([
     ["", ""],
     ["Increase in tourism", "pro_tourism"],
@@ -39,7 +39,7 @@
   <%= element "radio", "answers[con_building_costs]", "Initial planning and building costs", get_answer("con_building_costs") %>
   <%= element "radio", "answers[con_maintenance_costs]", "Long term maintenance costs", get_answer("con_maintenance_costs") %>
 
-  <p>Of these, I most concerned about potential...</p>
+  <p>Of these I am most concerned about potential...</p>
   <%= select_tag "answers[con_top]", options_for_select([
     ["", ""],
     ["Decrease in property values", "con_property_value"],
