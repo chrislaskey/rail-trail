@@ -5,7 +5,6 @@ class SurveysController < ApplicationController
   before_action :find_user_answers, only: [:take]
 
   def show
-    @include_charts = true
     calculate_results
   end
 

@@ -19,7 +19,7 @@
   <%= element "radio", "answers[pro_transportation]", "Transportation path", get_answer("pro_transportation") %>
   <%= element "radio", "answers[pro_cleanup_land]", "Beautification of land", get_answer("pro_cleanup_land") %>
 
-  <p>Of these I most value the potential...</p>
+  <p>Of these, I most value the potential...</p>
   <%= select_tag "answers[pro_top]", options_for_select([
     ["", ""],
     ["Increase in tourism", "pro_tourism"],
@@ -39,7 +39,7 @@
   <%= element "radio", "answers[con_building_costs]", "Initial planning and building costs", get_answer("con_building_costs") %>
   <%= element "radio", "answers[con_maintenance_costs]", "Long term maintenance costs", get_answer("con_maintenance_costs") %>
 
-  <p>Of these I most concerned about potential...</p>
+  <p>Of these, I most concerned about potential...</p>
   <%= select_tag "answers[con_top]", options_for_select([
     ["", ""],
     ["Decrease in property values", "con_property_value"],
@@ -77,7 +77,7 @@
 
   <p>For complete details see <a target="_blank" href="http://www.town.swampscott.ma.us/Public_Documents/SwampscottMA_Calendar/S058A43EE-05A4A9C3?formid=161">Article 18 of the Town Meeting Warrant</a>.</p>
 
-  <p>I believe the Swampscott Board of Selectmen should...</p>
+  <p>I believe the Town of Swampscott should...</p>
 
   <div class="question">
     <%= radio_button_tag "answers[selectmen_vote]", "approve", get_answer("selectmen_vote") == "approve" %>
