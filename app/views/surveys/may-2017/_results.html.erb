@@ -29,63 +29,98 @@
   }
 </script>
 
-<canvas id="first-answer" width="400" height="30"></canvas>
-
 <script>
-  var ctx = document.getElementById("first-answer")
-  var myChart = new Chart(ctx, {
-    type: "horizontalBar",
-    data: {
-      labels: [""],
-      datasets: [
-        {
-          label: "Strong Agree",
-          data: [getAnswerPercent("pro_tourism", "1")],
-          backgroundColor: ["rgb(0, 170, 94)"],
-          borderColor: ["rgb(0, 170, 94)"],
-          borderWidth: 1
-        },
-        {
-          label: "Agree",
-          data: [getAnswerPercent("pro_tourism", "2")],
-          backgroundColor: ["rgb(149, 209, 60)"],
-          borderColor: ["rgb(149, 209, 60)"],
-          borderWidth: 1
-        },
-        {
-          label: "Neutral",
-          data: [getAnswerPercent("pro_tourism", "3")],
-          backgroundColor: ["rgb(254, 213, 0)"],
-          borderColor: ["rgb(254, 213, 0)"],
-          borderWidth: 1
-        },
-        {
-          label: "Disagree",
-          data: [getAnswerPercent("pro_tourism", "4")],
-          backgroundColor: ["rgb(254, 133, 0)"],
-          borderColor: ["rgb(254, 133, 0)"],
-          borderWidth: 1
-        },
-        {
-          label: "Strong Disagree",
-          data: [getAnswerPercent("pro_tourism", "5")],
-          backgroundColor: ["rgb(255, 92, 73)"],
-          borderColor: ["rgb(255, 92, 73)"],
-          borderWidth: 1
+  var chartRadioResult = function(question) {
+    var ctx = document.getElementById(question)
+    new Chart(ctx, {
+      type: "horizontalBar",
+      data: {
+        labels: [""],
+        datasets: [
+          {
+            label: "Strong Agree",
+            data: [getAnswerPercent(question, "1")],
+            backgroundColor: ["rgb(0, 170, 94)"],
+            borderColor: ["rgb(0, 170, 94)"],
+            borderWidth: 1
+          },
+          {
+            label: "Agree",
+            data: [getAnswerPercent(question, "2")],
+            backgroundColor: ["rgb(149, 209, 60)"],
+            borderColor: ["rgb(149, 209, 60)"],
+            borderWidth: 1
+          },
+          {
+            label: "Neutral",
+            data: [getAnswerPercent(question, "3")],
+            backgroundColor: ["rgb(254, 213, 0)"],
+            borderColor: ["rgb(254, 213, 0)"],
+            borderWidth: 1
+          },
+          {
+            label: "Disagree",
+            data: [getAnswerPercent(question, "4")],
+            backgroundColor: ["rgb(254, 133, 0)"],
+            borderColor: ["rgb(254, 133, 0)"],
+            borderWidth: 1
+          },
+          {
+            label: "Strong Disagree",
+            data: [getAnswerPercent(question, "5")],
+            backgroundColor: ["rgb(255, 92, 73)"],
+            borderColor: ["rgb(255, 92, 73)"],
+            borderWidth: 1
+          }
+        ]
+      },
+      options: {
+        scales: {
+          xAxes: [{
+            display: true,
+            stacked: true,
+          }],
+          yAxes: [{
+            display: false,
+            stacked: true
+          }]
         }
-      ]
-    },
-    options: {
-      scales: {
-        xAxes: [{
-          display: true,
-          stacked: true,
-        }],
-        yAxes: [{
-          display: false,
-          stacked: true
-        }]
       }
-    }
-  })
+    })
+  }
+
 </script>
+
+<canvas id="pro_tourism" width="400" height="30"></canvas>
+<script>chartRadioResult("pro_tourism")</script>
+
+<canvas id="pro_property_values" width="400" height="30"></canvas>
+<script>chartRadioResult("pro_property_values")</script>
+
+<canvas id="pro_personal_use" width="400" height="30"></canvas>
+<script>chartRadioResult("pro_personal_use")</script>
+
+<canvas id="pro_transportation" width="400" height="30"></canvas>
+<script>chartRadioResult("pro_transportation")</script>
+
+<canvas id="pro_cleanup_land" width="400" height="30"></canvas>
+<script>chartRadioResult("pro_cleanup_land")</script>
+
+
+<canvas id="con_property_value" width="400" height="30"></canvas>
+<script>chartRadioResult("con_property_value")</script>
+
+<canvas id="con_loss_of_land" width="400" height="30"></canvas>
+<script>chartRadioResult("con_loss_of_land")</script>
+
+<canvas id="con_privacy" width="400" height="30"></canvas>
+<script>chartRadioResult("con_privacy")</script>
+
+<canvas id="con_safety" width="400" height="30"></canvas>
+<script>chartRadioResult("con_safety")</script>
+
+<canvas id="con_building_costs" width="400" height="30"></canvas>
+<script>chartRadioResult("con_building_costs")</script>
+
+<canvas id="con_maintenance_costs" width="400" height="30"></canvas>
+<script>chartRadioResult("con_maintenance_costs")</script>
