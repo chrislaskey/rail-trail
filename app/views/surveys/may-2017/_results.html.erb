@@ -33,73 +33,43 @@
   var chartRadioDataset = function (questions, labels) {
     return [
       {
-        label: "Strongly Agree",
-        data: [
-          getAnswerPercent(questions[0], "1"),
-          getAnswerPercent(questions[1], "1"),
-          getAnswerPercent(questions[2], "1"),
-          getAnswerPercent(questions[3], "1"),
-          getAnswerPercent(questions[4], "1")
-        ],
-        backgroundColor: ["rgb(0, 170, 94)"],
-        borderColor: ["rgb(0, 170, 94)"],
-        borderWidth: 1,
-        stack: "stack0"
-      },
-      {
-        label: "Agree",
-        data: [
-          getAnswerPercent(questions[0], "2"),
-          getAnswerPercent(questions[1], "2"),
-          getAnswerPercent(questions[2], "2"),
-          getAnswerPercent(questions[3], "2"),
-          getAnswerPercent(questions[4], "2")
-        ],
-        backgroundColor: ["rgb(149, 209, 60)"],
-        borderColor: ["rgb(149, 209, 60)"],
-        borderWidth: 1,
-        stack: "stack0"
-      },
-      {
-        label: "Neutral",
-        data: [
-          getAnswerPercent(questions[0], "2"),
-          getAnswerPercent(questions[1], "2"),
-          getAnswerPercent(questions[2], "2"),
-          getAnswerPercent(questions[3], "2"),
-          getAnswerPercent(questions[4], "2")
-        ],
-        backgroundColor: ["rgb(254, 213, 0)"],
-        borderColor: ["rgb(254, 213, 0)"],
-        borderWidth: 1,
+        label: "Strongly Disagree",
+        data: _.map(questions, function(question) {
+          return getAnswerPercent(question, "5")
+        }),
+        backgroundColor: "rgb(255, 92, 73)",
         stack: "stack0"
       },
       {
         label: "Disagree",
-        data: [
-          getAnswerPercent(questions[0], "3"),
-          getAnswerPercent(questions[1], "3"),
-          getAnswerPercent(questions[2], "3"),
-          getAnswerPercent(questions[3], "3"),
-          getAnswerPercent(questions[4], "3")
-        ],
-        backgroundColor: ["rgb(254, 133, 0)"],
-        borderColor: ["rgb(254, 133, 0)"],
-        borderWidth: 1,
+        data: _.map(questions, function(question) {
+          return getAnswerPercent(question, "4")
+        }),
+        backgroundColor: "rgb(254, 133, 0)",
         stack: "stack0"
       },
       {
-        label: "Strongly Disagree",
-        data: [
-          getAnswerPercent(questions[0], "4"),
-          getAnswerPercent(questions[1], "4"),
-          getAnswerPercent(questions[2], "4"),
-          getAnswerPercent(questions[3], "4"),
-          getAnswerPercent(questions[4], "4")
-        ],
-        backgroundColor: ["rgb(255, 92, 73)"],
-        borderColor: ["rgb(255, 92, 73)"],
-        borderWidth: 1,
+        label: "Neutral",
+        data: _.map(questions, function(question) {
+          return getAnswerPercent(question, "3")
+        }),
+        backgroundColor: "rgb(254, 213, 0)",
+        stack: "stack0"
+      },
+      {
+        label: "Agree",
+        data: _.map(questions, function(question) {
+          return getAnswerPercent(question, "2")
+        }),
+        backgroundColor: "rgb(149, 209, 60)",
+        stack: "stack0"
+      },
+      {
+        label: "Strongly Agree",
+        data: _.map(questions, function(question) {
+          return getAnswerPercent(question, "1")
+        }),
+        backgroundColor: "rgb(0, 170, 94)",
         stack: "stack0"
       }
     ]
@@ -111,7 +81,7 @@
       type: "horizontalBar",
       data: {
         labels: labels,
-        datasets: chartRadioDataset(questions, labels)
+        datasets: chartRadioDataset(questions)
       },
       options: {
         scales: {
@@ -125,8 +95,7 @@
           }]
         },
         tooltips: {
-          mode: "index",
-          intersect: false
+          mode: "index"
         }
       }
     })
@@ -134,7 +103,15 @@
 
 </script>
 
+<h2>Benefits</h2>
+
+<p>I value the potential...</p>
 <canvas id="pros" width="400" height="150"></canvas>
+
+<h2>Concerns</h2>
+
+<p>I am concerned about potential... </p>
+<canvas id="cons" width="400" height="180"></canvas>
 
 <script>
   chartRadioResults(
@@ -152,6 +129,26 @@
       "Recreational space",
       "Transportation path",
       "Beautification of land"
+    ]
+  )
+
+  chartRadioResults(
+    "cons",
+    [
+      "con_property_value",
+      "con_loss_of_land",
+      "con_privacy",
+      "con_safety",
+      "con_building_costs",
+      "con_maintenance_costs"
+    ],
+    [
+      "Decrease in my property value",
+      "Loss of land",
+      "Privacy",
+      "Safety and Security",
+      "Initial planning and building costs",
+      "Long term maintenance costs"
     ]
   )
 </script>
