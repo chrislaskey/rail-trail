@@ -53,8 +53,9 @@
     ["Long term maintenance costs", "con_maintenance_costs"],
   ], get_answer("con_top")) %>
 
-  <h2>I am...</h2>
+  <h2>Support</h2>
 
+  <p>I am... </p>
   <div class="question">
     <%= radio_button_tag "answers[support]", "yes", get_answer("support") == "yes" %>
     <%= label_tag "answers_support_yes", "In favor of the idea of a Rail Trail" %>
@@ -69,9 +70,9 @@
     <%= label_tag "answers_support_undecided", "I do not have enough information to form an opinion" %>
   </div>
 
-  <h2>Town Vote</h2>
+  <h2>Town Meeting</h2>
 
-  <p>On May 15, 2017 the Swampscott Board of Selectmen will be voting to approve $850,000 of town funds for:</p>
+  <p>On May 15, 2017 the Town of Swampscott will be voting to approve $850,000 of town funds for:</p>
 
   <ol>
     <li>Phase II - Fund Engineering plan</li>
@@ -83,20 +84,20 @@
   <p>I believe the Town of Swampscott should...</p>
 
   <div class="question">
-    <%= radio_button_tag "answers[selectmen_vote]", "approve", get_answer("selectmen_vote") == "approve" %>
-    <%= label_tag "answers_selectmen_vote_approve", "Approve both Phase II and Phase III" %>
+    <%= radio_button_tag "answers[town_vote]", "approve", get_answer("town_vote") == "approve" %>
+    <%= label_tag "answers_town_vote_approve", "Approve both Phase II and Phase III" %>
     <br/>
-    <%= radio_button_tag "answers[selectmen_vote]", "first_only", get_answer("selectmen_vote") == "first_only" %>
-    <%= label_tag "answers_selectmen_vote_first_only", "Amend the article and only approve Phase II" %>
+    <%= radio_button_tag "answers[town_vote]", "first_only", get_answer("town_vote") == "first_only" %>
+    <%= label_tag "answers_town_vote_first_only", "Amend the article and only approve Phase II" %>
     <br/>
-    <%= radio_button_tag "answers[selectmen_vote]", "delay", get_answer("selectmen_vote") == "delay" %>
-    <%= label_tag "answers_selectmen_vote_delay", "Delay voting on either phases" %>
+    <%= radio_button_tag "answers[town_vote]", "delay", get_answer("town_vote") == "delay" %>
+    <%= label_tag "answers_town_vote_delay", "Delay voting on either phase" %>
     <br/>
-    <%= radio_button_tag "answers[selectmen_vote]", "against", get_answer("selectmen_vote") == "against" %>
-    <%= label_tag "answers_selectmen_vote_against", "Vote against both phases" %>
+    <%= radio_button_tag "answers[town_vote]", "against", get_answer("town_vote") == "against" %>
+    <%= label_tag "answers_town_vote_against", "Vote against both phases" %>
     <br/>
-    <%= radio_button_tag "answers[selectmen_vote]", "undecided", get_answer("selectmen_vote") == "undecided" %>
-    <%= label_tag "answers_selectmen_vote_undecided", "No opinion" %>
+    <%= radio_button_tag "answers[town_vote]", "undecided", get_answer("town_vote") == "undecided" %>
+    <%= label_tag "answers_town_vote_undecided", "No opinion" %>
   </div>
 
   <h2>Next Steps</h2>

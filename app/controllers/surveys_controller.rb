@@ -118,7 +118,7 @@ class SurveysController < ApplicationController
       :con_other,
       :con_top,
       :support,
-      :selectmen_vote,
+      :town_vote,
       :town_action,
       :survey_feedback
     ).reject do |_key, value|

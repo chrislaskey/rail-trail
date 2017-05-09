@@ -1,3 +1,43 @@
+<div style="width: 80%; margin: 0px auto;">
+
+  <h2>Benefits</h2>
+
+  <p>I value the potential...</p>
+  <canvas id="pros" width="400" height="130"></canvas>
+
+  <p>Of these I most value the potential...</p>
+  <canvas id="pro_top" width="400" height="140"></canvas>
+
+  <h2>Concerns</h2>
+
+  <p>I am concerned about potential... </p>
+  <canvas id="cons" width="400" height="156"></canvas>
+
+  <p>Of these I am most concerned about potential...</p>
+  <canvas id="con_top" width="400" height="140"></canvas>
+
+  <h2>Support</h2>
+
+  <p>I am... </p>
+  <canvas id="support" width="400" height="140"></canvas>
+
+  <h2>Town Meeting</h2>
+
+  <p>On May 15, 2017 the Town of Swampscott will be voting to approve $850,000 of town funds for:</p>
+
+  <ol>
+    <li>Phase II - Fund Engineering plan</li>
+    <li>Phase III - Acquiring land</li>
+  </ol>
+
+  <p>For complete details see <a target="_blank" href="http://www.town.swampscott.ma.us/Public_Documents/SwampscottMA_Calendar/S058A43EE-05A4A9C3?formid=161">Article 18 of the Town Meeting Warrant</a>.</p>
+
+  <p>I believe the Town of Swampscott should...</p>
+
+  <canvas id="town_vote" width="400" height="140"></canvas>
+
+</div>
+
 <script>
   var dataByQuestion = <%= raw @results_by_question.to_json %>
   var dataByAnswer = <%= raw @results_by_answer.to_json %>
@@ -30,6 +70,33 @@
 </script>
 
 <script>
+  var chartPieDataset = function (question, answers) {
+    return {
+      labels: _.values(answers),
+      datasets: [{
+        data: _.map(answers, function (_label, answer) {
+          return getAnswerPercent(question, answer)
+        }),
+        backgroundColor: [
+          "#FF6384",
+          "#36A2EB",
+          "#FFCE56",
+          "#885ecc",
+          "#58b941",
+          "#5a77e2"
+        ],
+        hoverBackgroundColor: [
+          "#FF6384",
+          "#36A2EB",
+          "#FFCE56",
+          "#885ecc",
+          "#58b941",
+          "#5a77e2"
+        ]
+      }]
+    }
+  }
+
   var chartRadioDataset = function (questions) {
     return [
       {
@@ -80,8 +147,23 @@
     ]
   }
 
+  var chartPieResults = function(id, question, answers) {
+    var ctx = document.getElementById(id)
+
+    new Chart(ctx, {
+      type: "pie",
+      data: chartPieDataset(question, answers),
+      options: {
+        legend: {
+          position: "left"
+        }
+      }
+    })
+  }
+
   var chartRadioResults = function(id, questions, labels) {
     var ctx = document.getElementById(id)
+
     new Chart(ctx, {
       type: "horizontalBar",
       data: {
@@ -108,15 +190,6 @@
 
 </script>
 
-<h2>Benefits</h2>
-
-<p>I value the potential...</p>
-<canvas id="pros" width="400" height="100"></canvas>
-
-<h2>Concerns</h2>
-
-<p>I am concerned about potential... </p>
-<canvas id="cons" width="400" height="120"></canvas>
 
 <script>
   chartRadioResults(
@@ -137,24 +210,16 @@
     ]
   )
 
-  chartRadioResults(
-    "cons",
-    [
-      "con_property_value",
-      "con_loss_of_land",
-      "con_privacy",
-      "con_safety",
-      "con_building_costs",
-      "con_maintenance_costs"
-    ],
-    [
-      "Decrease in my property value",
-      "Loss of land",
-      "Privacy",
-      "Safety and Security",
-      "Initial planning and building costs",
-      "Long-term maintenance costs"
-    ]
+  chartPieResults(
+    "pro_top",
+    "pro_top",
+    {
+      "pro_tourism": "Increase in tourism",
+      "pro_property_values": "Increase in town-wide property values",
+      "pro_personal_use": "Recreational space",
+      "pro_transportation": "Transportation path",
+      "pro_cleanup_land": "Beautification of land"
+    }
   )
 
   chartRadioResults(
@@ -175,5 +240,41 @@
       "Initial planning and building costs",
       "Long-term maintenance costs"
     ]
+  )
+
+  chartPieResults(
+    "con_top",
+    "con_top",
+    {
+      "con_property_value": "Decrease in my property value",
+      "con_loss_of_land": "Loss of land",
+      "con_privacy": "Privacy",
+      "con_safety": "Safety and Security",
+      "con_building_costs": "Initial planning and building costs",
+      "con_maintenance_costs": "Long-term maintenance costs"
+    }
+  )
+
+  chartPieResults(
+    "support",
+    "support",
+    {
+      "yes": "In favor of the idea of a Rail Trail",
+      "idea_only": "In favor of the idea of a Rail Trail, but not the current proposal",
+      "no": "Not in favor of the idea of a Rail Trail",
+      "undecided": "I do not have enough information to form an opinion",
+    }
+  )
+
+  chartPieResults(
+    "town_vote",
+    "town_vote",
+    {
+      "approve": "Approve both Phase II and Phase III",
+      "first_only": "Amend the article and only approve Phase II",
+      "delay": "Delay voting on Article 18",
+      "against": "Vote against both phases",
+      "undecided": "No opinion",
+    }
   )
 </script>

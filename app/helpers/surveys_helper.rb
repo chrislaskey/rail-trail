@@ -12,7 +12,7 @@ module SurveysHelper
 
   def get_answer(key)
     records = @answers.fetch(key, nil)
-    return nil if records.empty?
+    return nil unless records.present?
     records.first.answer.to_s
   end
 
