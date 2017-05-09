@@ -1,11 +1,14 @@
 <%= form_tag submit_survey_path(@survey.slug) do %>
-  <h2>I am a...</h2>
+  <h2>About You</h2>
 
+  <p>I am a...</p>
   <div class="question">
     <%= radio_button_tag "user[group]", "abutter", current_user.group == "abutter" %>
-    <%= label_tag "user_group_abutter", "Abutter" %>
+    <%= label_tag "user_group_abutter", "Swampscott resident and rail trail property abutter" %>
+    <br/>
     <%= radio_button_tag "user[group]", "resident", current_user.group == "resident" %>
-    <%= label_tag "user_group_resident", "Resident" %>
+    <%= label_tag "user_group_resident", "Swampscott resident" %>
+    <br/>
     <%= radio_button_tag "user[group]", "other", current_user.group == "other" %>
     <%= label_tag "user_group_other", "Other" %>
   </div>
