@@ -25,54 +25,93 @@
     var total = getResultsByQuestion(question)
     var local = getResultsByAnswer(question, answer)
 
-    return (local/total) * 100
+    return (local/total) * 100 || 0
   }
 </script>
 
 <script>
-  var chartRadioResult = function(question) {
-    var ctx = document.getElementById(question)
+  var chartRadioDataset = function (questions, labels) {
+    return [
+      {
+        label: "Strongly Agree",
+        data: [
+          getAnswerPercent(questions[0], "1"),
+          getAnswerPercent(questions[1], "1"),
+          getAnswerPercent(questions[2], "1"),
+          getAnswerPercent(questions[3], "1"),
+          getAnswerPercent(questions[4], "1")
+        ],
+        backgroundColor: ["rgb(0, 170, 94)"],
+        borderColor: ["rgb(0, 170, 94)"],
+        borderWidth: 1,
+        stack: "stack0"
+      },
+      {
+        label: "Agree",
+        data: [
+          getAnswerPercent(questions[0], "2"),
+          getAnswerPercent(questions[1], "2"),
+          getAnswerPercent(questions[2], "2"),
+          getAnswerPercent(questions[3], "2"),
+          getAnswerPercent(questions[4], "2")
+        ],
+        backgroundColor: ["rgb(149, 209, 60)"],
+        borderColor: ["rgb(149, 209, 60)"],
+        borderWidth: 1,
+        stack: "stack0"
+      },
+      {
+        label: "Neutral",
+        data: [
+          getAnswerPercent(questions[0], "2"),
+          getAnswerPercent(questions[1], "2"),
+          getAnswerPercent(questions[2], "2"),
+          getAnswerPercent(questions[3], "2"),
+          getAnswerPercent(questions[4], "2")
+        ],
+        backgroundColor: ["rgb(254, 213, 0)"],
+        borderColor: ["rgb(254, 213, 0)"],
+        borderWidth: 1,
+        stack: "stack0"
+      },
+      {
+        label: "Disagree",
+        data: [
+          getAnswerPercent(questions[0], "3"),
+          getAnswerPercent(questions[1], "3"),
+          getAnswerPercent(questions[2], "3"),
+          getAnswerPercent(questions[3], "3"),
+          getAnswerPercent(questions[4], "3")
+        ],
+        backgroundColor: ["rgb(254, 133, 0)"],
+        borderColor: ["rgb(254, 133, 0)"],
+        borderWidth: 1,
+        stack: "stack0"
+      },
+      {
+        label: "Strongly Disagree",
+        data: [
+          getAnswerPercent(questions[0], "4"),
+          getAnswerPercent(questions[1], "4"),
+          getAnswerPercent(questions[2], "4"),
+          getAnswerPercent(questions[3], "4"),
+          getAnswerPercent(questions[4], "4")
+        ],
+        backgroundColor: ["rgb(255, 92, 73)"],
+        borderColor: ["rgb(255, 92, 73)"],
+        borderWidth: 1,
+        stack: "stack0"
+      }
+    ]
+  }
+
+  var chartRadioResults = function(id, questions, labels) {
+    var ctx = document.getElementById(id)
     new Chart(ctx, {
       type: "horizontalBar",
       data: {
-        labels: [""],
-        datasets: [
-          {
-            label: "Strong Agree",
-            data: [getAnswerPercent(question, "1")],
-            backgroundColor: ["rgb(0, 170, 94)"],
-            borderColor: ["rgb(0, 170, 94)"],
-            borderWidth: 1
-          },
-          {
-            label: "Agree",
-            data: [getAnswerPercent(question, "2")],
-            backgroundColor: ["rgb(149, 209, 60)"],
-            borderColor: ["rgb(149, 209, 60)"],
-            borderWidth: 1
-          },
-          {
-            label: "Neutral",
-            data: [getAnswerPercent(question, "3")],
-            backgroundColor: ["rgb(254, 213, 0)"],
-            borderColor: ["rgb(254, 213, 0)"],
-            borderWidth: 1
-          },
-          {
-            label: "Disagree",
-            data: [getAnswerPercent(question, "4")],
-            backgroundColor: ["rgb(254, 133, 0)"],
-            borderColor: ["rgb(254, 133, 0)"],
-            borderWidth: 1
-          },
-          {
-            label: "Strong Disagree",
-            data: [getAnswerPercent(question, "5")],
-            backgroundColor: ["rgb(255, 92, 73)"],
-            borderColor: ["rgb(255, 92, 73)"],
-            borderWidth: 1
-          }
-        ]
+        labels: labels,
+        datasets: chartRadioDataset(questions, labels)
       },
       options: {
         scales: {
@@ -81,9 +120,13 @@
             stacked: true,
           }],
           yAxes: [{
-            display: false,
+            display: true,
             stacked: true
           }]
+        },
+        tooltips: {
+          mode: "index",
+          intersect: false
         }
       }
     })
@@ -91,36 +134,24 @@
 
 </script>
 
-<canvas id="pro_tourism" width="400" height="30"></canvas>
-<script>chartRadioResult("pro_tourism")</script>
+<canvas id="pros" width="400" height="150"></canvas>
 
-<canvas id="pro_property_values" width="400" height="30"></canvas>
-<script>chartRadioResult("pro_property_values")</script>
-
-<canvas id="pro_personal_use" width="400" height="30"></canvas>
-<script>chartRadioResult("pro_personal_use")</script>
-
-<canvas id="pro_transportation" width="400" height="30"></canvas>
-<script>chartRadioResult("pro_transportation")</script>
-
-<canvas id="pro_cleanup_land" width="400" height="30"></canvas>
-<script>chartRadioResult("pro_cleanup_land")</script>
-
-
-<canvas id="con_property_value" width="400" height="30"></canvas>
-<script>chartRadioResult("con_property_value")</script>
-
-<canvas id="con_loss_of_land" width="400" height="30"></canvas>
-<script>chartRadioResult("con_loss_of_land")</script>
-
-<canvas id="con_privacy" width="400" height="30"></canvas>
-<script>chartRadioResult("con_privacy")</script>
-
-<canvas id="con_safety" width="400" height="30"></canvas>
-<script>chartRadioResult("con_safety")</script>
-
-<canvas id="con_building_costs" width="400" height="30"></canvas>
-<script>chartRadioResult("con_building_costs")</script>
-
-<canvas id="con_maintenance_costs" width="400" height="30"></canvas>
-<script>chartRadioResult("con_maintenance_costs")</script>
+<script>
+  chartRadioResults(
+    "pros",
+    [
+      "pro_tourism",
+      "pro_property_values",
+      "pro_personal_use",
+      "pro_transportation",
+      "pro_cleanup_land"
+    ],
+    [
+      "Increase in tourism",
+      "Increase in town-wide property values",
+      "Recreational space",
+      "Transportation path",
+      "Beautification of land"
+    ]
+  )
+</script>
