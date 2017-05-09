@@ -30,12 +30,12 @@
 </script>
 
 <script>
-  var chartRadioDataset = function (questions, labels) {
+  var chartRadioDataset = function (questions) {
     return [
       {
         label: "Strongly Disagree",
         data: _.map(questions, function(question) {
-          return getAnswerPercent(question, "5")
+          return getAnswerPercent(question, "strongly_disagree")
         }),
         backgroundColor: "rgb(255, 92, 73)",
         stack: "stack0"
@@ -43,7 +43,7 @@
       {
         label: "Disagree",
         data: _.map(questions, function(question) {
-          return getAnswerPercent(question, "4")
+          return getAnswerPercent(question, "disagree")
         }),
         backgroundColor: "rgb(254, 133, 0)",
         stack: "stack0"
@@ -51,7 +51,7 @@
       {
         label: "Neutral",
         data: _.map(questions, function(question) {
-          return getAnswerPercent(question, "3")
+          return getAnswerPercent(question, "neutral")
         }),
         backgroundColor: "rgb(254, 213, 0)",
         stack: "stack0"
@@ -59,7 +59,7 @@
       {
         label: "Agree",
         data: _.map(questions, function(question) {
-          return getAnswerPercent(question, "2")
+          return getAnswerPercent(question, "agree")
         }),
         backgroundColor: "rgb(149, 209, 60)",
         stack: "stack0"
@@ -67,7 +67,7 @@
       {
         label: "Strongly Agree",
         data: _.map(questions, function(question) {
-          return getAnswerPercent(question, "1")
+          return getAnswerPercent(question, "strongly_agree")
         }),
         backgroundColor: "rgb(0, 170, 94)",
         stack: "stack0"
@@ -148,7 +148,7 @@
       "Privacy",
       "Safety and Security",
       "Initial planning and building costs",
-      "Long term maintenance costs"
+      "Long-term maintenance costs"
     ]
   )
 </script>

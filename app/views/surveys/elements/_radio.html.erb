@@ -3,16 +3,16 @@
     <%= label_tag @name, label, class: "radio-label" %>
   </div>
   <div class="question-radio-buttons">
-    <%= label_tag "#{name}_1", "Strongly Disagree" %>
-    <%= radio_button_tag name, "1", ("1" == current), class: "uk-radio" %>
-    <%= label_tag "#{name}_2", "Disagree" %>
-    <%= radio_button_tag name, "2", ("2" == current), class: "uk-radio" %>
-    <%= label_tag "#{name}_3", "Neutral" %>
-    <%= radio_button_tag name, "3", ("3" == current), class: "uk-radio" %>
-    <%= label_tag "#{name}_4", "Agree" %>
-    <%= radio_button_tag name, "4", ("4" == current), class: "uk-radio" %>
-    <%= label_tag "#{name}_5", "Strongly Agree" %>
-    <%= radio_button_tag name, "5", ("5" == current), class: "uk-radio" %>
+    <%= label_tag "#{name}_strongly_disagree", "Strongly Disagree" %>
+    <%= radio_button_tag name, "strongly_disagree", ("strongly_disagree" == current), class: "uk-radio" %>
+    <%= label_tag "#{name}_disagree", "Disagree" %>
+    <%= radio_button_tag name, "disagree", ("disagree" == current), class: "uk-radio" %>
+    <%= label_tag "#{name}_neutral", "Neutral" %>
+    <%= radio_button_tag name, "neutral", ("neutral" == current), class: "uk-radio" %>
+    <%= label_tag "#{name}_agree", "Agree" %>
+    <%= radio_button_tag name, "agree", ("agree" == current), class: "uk-radio" %>
+    <%= label_tag "#{name}_strongly_agree", "Strongly Agree" %>
+    <%= radio_button_tag name, "strongly_agree", ("strongly_agree" == current), class: "uk-radio" %>
   </div>
 </div>
 
