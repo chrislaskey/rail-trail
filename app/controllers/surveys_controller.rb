@@ -76,19 +76,21 @@ class SurveysController < ApplicationController
         acc
       end
 
-    @results_by_group = Answer
-      .joins(:question, :user)
-      .where(survey: @survey)
-      .where("questions.response_type" => :multiple_choice)
-      .group("questions.slug", :answer, "users.group")
-      .count
-      .reduce({}) do |acc, (key, value)|
-        # Query returns compound key, e.g. {[1,2,3]: 5}
-        # JS doesn't support compound object keys, so convert to single value
-        # string, e.g. `{"1:2:3": 5}`
-        acc["#{key[0]}:#{key[1]}:#{key[2]}"] = value
-        acc
-      end
+    # Note: Temporarily disabled until group visualizations are ready
+    #
+    # @results_by_group = Answer
+    #   .joins(:question, :user)
+    #   .where(survey: @survey)
+    #   .where("questions.response_type" => :multiple_choice)
+    #   .group("questions.slug", :answer, "users.group")
+    #   .count
+    #   .reduce({}) do |acc, (key, value)|
+    #     # Query returns compound key, e.g. {[1,2,3]: 5}
+    #     # JS doesn't support compound object keys, so convert to single value
+    #     # string, e.g. `{"1:2:3": 5}`
+    #     acc["#{key[0]}:#{key[1]}:#{key[2]}"] = value
+    #     acc
+    #   end
   end
 
   def user_params

@@ -50,7 +50,6 @@
 <script>
   var dataByQuestion = <%= raw @results_by_question.to_json %>
   var dataByAnswer = <%= raw @results_by_answer.to_json %>
-  var dataByGroup = <%= raw @results_by_group.to_json %>
   var userGroups = <%= raw User.groups.to_json %>
 
   var getResultsByQuestion = function(question) {
@@ -163,6 +162,7 @@
       type: "pie",
       data: chartPieDataset(question, answers),
       options: {
+        animation: false,
         legend: {
           position: "left"
         }
@@ -180,6 +180,7 @@
         datasets: chartRadioDataset(questions)
       },
       options: {
+        animation: false,
         scales: {
           xAxes: [{
             display: true,
