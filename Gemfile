@@ -13,6 +13,7 @@ gem "uglifier", ">= 1.3.0"
 gem "jquery-rails"
 gem "devise"
 gem "omniauth-facebook"
+gem "actionpack-page_caching"
 gem "turbolinks", "~> 5.0.0"
 
 group :development, :test do

@@ -4,6 +4,8 @@ class SurveysController < ApplicationController
   before_action :find_questions, only: [:submit]
   before_action :find_user_answers, only: [:take]
 
+  caches_page :show
+
   def show
     calculate_results
   end
