@@ -5,9 +5,7 @@ html, body {
   background: #fff;
   color: #444;
   font-family: "Merriweather", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  font-size: 16px;
   font-weight: normal;
-  line-height: 1.5;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
@@ -28,14 +26,27 @@ h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
-a,
-.uk-table a,
-.uk-link {
+a {
   color: #9d1e9e;
 
   &:hover{
     color: #9d1e9e;
   }
+}
+
+.button,
+.button-primary {
+  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+label,
+legend {
+  display: inline-block;
+  font-weight: normal;
+}
+
+textarea {
+  height: auto;
 }
 
 ul li {
@@ -55,119 +66,15 @@ ul li {
   justify-content: space-between;
   padding: 30px 30px;
 
-  .uk-navbar-nav > li > a,
-  .uk-navbar-item,
-  .uk-navbar-toggle {
-    font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-    color: #777;
-    height: 100%;
-    padding: 0px 0px 0px 15px;
-    text-transform: none;
-  }
-
   h1, h2 {
     color: #92a8d1;
     font-size: 1.25rem;
-    font-weight: 700;
     margin-bottom: 0;
 
     a {
       color: #92a8d1;
 
       &:hover {
-        text-decoration: none;
-      }
-    }
-  }
-
-  .page-titlebar {
-    align-self: stretch;
-    display: flex;
-    height: 75px;
-    justify-content: space-between;
-    padding: 0px 30px 0px 15px;
-
-    .uk-logo {
-      color: #333;
-      font-size: 1.25rem;
-      font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-    }
-
-    .community-name {
-      color: #888;
-      font-size: 1rem;
-      font-style: italic;
-      margin-left: 10px;
-    }
-  }
-
-  .page-navbar {
-    display: flex;
-    font-weight: 600;
-    justify-content: space-between;
-    padding: 0px;
-
-    li {
-      text-align: right;
-    }
-
-    .user {
-      display: flex;
-      justify-content: space-between;
-      margin-left: 15px;
-      text-transform: none;
-
-      .image {
-        border-radius: 500px;
-        background-size: cover;
-        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
-        display: inline-block;
-        height: 40px;
-        width: 40px;
-      }
-
-      .name {
-        margin-left: 10px;
-        display: inline-block;
-      }
-    }
-  }
-}
-
-.page-lead {
-  align-self: stretch;
-  display: flex;
-  justify-content: space-between;
-  padding: 30px 30px;
-
-  .page-heading {
-    h1, h2 {
-      color: #92a8d1;
-      font-size: 2.25rem;
-      margin-bottom: 0;
-    }
-  }
-
-  .page-actions {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    margin-left: 10px;
-
-    a {
-      border-radius: 500px;
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      color: #fff;
-      font-size: 0.875rem;
-      margin-left: 15px;
-      padding: 10px 15px;
-
-      &:first-child {
-        margin-left: 0;
-      }
-
-      &:hover {
-        border: 1px solid #fff;
         text-decoration: none;
       }
     }
@@ -205,14 +112,10 @@ ul li {
 }
 
 .page-main {
-  display: flex;
-  justify-content: space-between;
-  margin: 30px 0px 0px 0px;
-  padding: 0px 30px 30px 30px;
+
 }
 
 .page-content {
-  width: 100%;
 
   .document-list {
     list-style: none;
@@ -246,43 +149,6 @@ ul li {
       &:last-child {
         border-bottom: none;
       }
-    }
-  }
-
-  .uk-pagination {
-    border-top: 1px dotted #e2e2e2;
-    margin-top: 15px;
-    margin-left: 0px;
-    padding-top: 15px;
-    font-size: 0.875rem;
-
-    em {
-      color: #333;
-      font-style: normal;
-    }
-  }
-
-  .uk-radio:checked,
-  .uk-checkbox:checked,
-  .uk-checkbox:indeterminate {
-    background-color: #92a8d1;
-  }
-
-  .uk-table {
-
-    small {
-      color: #888;
-      font-size: 0.75rem;
-    }
-  }
-
-  .uk-placeholder {
-    border: 1px dashed #ccc;
-    border: 1px solid #e2e2e2;
-
-    &:hover {
-      background: #f8f8f8;
-      border: 1px solid #e2e2e2;
     }
   }
 
@@ -324,9 +190,6 @@ ul li {
 
   h3 {
     color: #fff;
-    font-size: 1.0rem;
-    font-weight: 600;
-    letter-spacing: 0.25rem;
     margin-bottom: 2rem;
   }
 }

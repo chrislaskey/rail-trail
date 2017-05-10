@@ -1,8 +1,8 @@
-<div class="question question-radio <%= classes %>">
-  <div class="question-radio-label">
+<div class="question question-radio row <%= classes %>">
+  <div class="question-radio-label five columns">
     <%= label_tag @name, label, class: "radio-label" %>
   </div>
-  <div class="question-radio-buttons">
+  <div class="question-radio-buttons seven columns">
     <%= label_tag "#{name}_strongly_disagree", "Strongly Disagree" %>
     <%= radio_button_tag name, "strongly_disagree", ("strongly_disagree" == current), class: "uk-radio" %>
     <%= label_tag "#{name}_disagree", "Disagree" %>

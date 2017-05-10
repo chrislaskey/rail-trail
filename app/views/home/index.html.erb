@@ -8,12 +8,13 @@
 <%= render "layouts/alerts" %>
 
 <div class="page-main">
-  <div class="page-content">
+  <div class="page-content container">
 
     <h3>Surveys</h3>
     <p>May 2017 Community Survey</p>
-    <p><a href="<%= survey_path "may-2017" %>">See the Results</a></p>
-    <p><a href="<%= take_survey_path "may-2017" %>">Take the Survey</a></p>
-
+    <p>
+      <a class="button button-primary" href="<%= survey_path "may-2017" %>">See the Results</a>
+      <a class="button" href="<%= take_survey_path "may-2017" %>">Take the Survey</a>
+    </p>
   </div>
 </div>

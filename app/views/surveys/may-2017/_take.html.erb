@@ -104,13 +104,13 @@
 
   <p>What actions can the town take to address concerns and increase support for the project?</p>
 
-  <%= text_area_tag "answers[town_action]", get_answer("town_action"), rows: 6 %>
+  <%= text_area_tag "answers[town_action]", get_answer("town_action"), { class: "u-full-width", rows: 5 } %>
 
   <h2>Survey Feedback</h2>
 
   <p>How can we improve the survey in the future? What would you like to see asked next?</p>
 
-  <%= text_area_tag "answers[survey_feedback]", get_answer("survey_feedback"), rows: 6 %>
+  <%= text_area_tag "answers[survey_feedback]", get_answer("survey_feedback"), { class: "u-full-width", rows: 4 } %>
 
   <%= submit_tag "Save", class: "uk-button uk-button-default" %>
 <% end %>
