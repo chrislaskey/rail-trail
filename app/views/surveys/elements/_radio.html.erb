@@ -1,17 +1,17 @@
-<div class="question question-radio row <%= classes %>">
-  <div class="question-radio-label five columns">
+<div class="answers question-radio row <%= classes %>">
+  <div class="five columns">
     <%= label_tag @name, label, class: "radio-label" %>
   </div>
-  <div class="question-radio-buttons seven columns">
+  <div class="seven columns">
     <%= label_tag "#{name}_strongly_disagree", "Strongly Disagree" %>
-    <%= radio_button_tag name, "strongly_disagree", ("strongly_disagree" == current), class: "uk-radio" %>
+    <%= radio_button_tag name, "strongly_disagree", ("strongly_disagree" == current) %>
     <%= label_tag "#{name}_disagree", "Disagree" %>
-    <%= radio_button_tag name, "disagree", ("disagree" == current), class: "uk-radio" %>
+    <%= radio_button_tag name, "disagree", ("disagree" == current) %>
     <%= label_tag "#{name}_neutral", "Neutral" %>
-    <%= radio_button_tag name, "neutral", ("neutral" == current), class: "uk-radio" %>
+    <%= radio_button_tag name, "neutral", ("neutral" == current) %>
     <%= label_tag "#{name}_agree", "Agree" %>
-    <%= radio_button_tag name, "agree", ("agree" == current), class: "uk-radio" %>
+    <%= radio_button_tag name, "agree", ("agree" == current) %>
     <%= label_tag "#{name}_strongly_agree", "Strongly Agree" %>
-    <%= radio_button_tag name, "strongly_agree", ("strongly_agree" == current), class: "uk-radio" %>
+    <%= radio_button_tag name, "strongly_agree", ("strongly_agree" == current) %>
   </div>
 </div>
