@@ -62,10 +62,9 @@ ul li {
 }
 
 .page-header {
-  box-shadow: 0px 0px 10px 3px rgba(143, 167, 211, 0.2);
-  // border-bottom: 1px solid #eee;
   line-height: 8rem;
   height: 8rem;
+  border-bottom: 1px solid #dde6f7;
 
   h1, h2 {
     color: #6a8ac5;
@@ -87,7 +86,7 @@ ul li {
 .page-alerts {
   padding: 2rem 2rem;
 
-  .uk-alert {
+  .alert {
     margin: 0 0 15px 0;
 
     &:last-child {
@@ -95,19 +94,19 @@ ul li {
     }
   }
 
-  .uk-alert-danger {
+  .alert-danger {
     background: #fff6f9;
     border: 1px solid #fbd3e2;
     color: #ec678a;
   }
 
-  .uk-alert-primary {
+  .alert-primary {
     background: #f1f8ff;
     border: 1px solid #c6e3ff;
     color: #589ee4;
   }
 
-  .uk-alert-success {
+  .alert-success {
     background: #f7fff9;
     border: 1px solid #b9f1c4;
     color: #59b16b;
@@ -119,13 +118,33 @@ ul li {
 }
 
 .page-content {
+  padding: 2rem 0 4rem 0;
+
+  h1, h2, h3 {
+    margin: 3rem 0 2rem 0;
+  }
+
+  .radio-answers label {
+    margin-right: 1rem;
+    font-size: 1.25rem;
+  }
 
   .question {
-    // color: #146c90;
-    // color: #d0135e;
-    margin: 2rem 0 1rem 0;
+    margin: 3rem 0 2rem 0;
     font-size: 1.75rem;
     font-weight: 600;
+  }
+
+  .answers {
+    margin: 3rem 0 2rem 0;
+  }
+
+  .callout {
+    margin: 0 0 4rem 0;
+    padding: 2rem 4rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
   }
 
   .user-image {

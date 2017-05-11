@@ -24,7 +24,7 @@
   <%= element "radio", "answers[pro_cleanup_land]", "Beautification of land", get_answer("pro_cleanup_land") %>
 
   <div class="row">
-    <div class="question five columns">Of these I most value the potential...</div>
+    <div class="question five columns">Of these I most value the...</div>
     <div class="answers seven columns">
       <%= select_tag "answers[pro_top]", options_for_select([
         ["", ""],
@@ -45,10 +45,10 @@
   <%= element "radio", "answers[con_privacy]", "Privacy", get_answer("con_privacy") %>
   <%= element "radio", "answers[con_safety]", "Safety and Security", get_answer("con_safety") %>
   <%= element "radio", "answers[con_building_costs]", "Initial planning and building costs", get_answer("con_building_costs") %>
-  <%= element "radio", "answers[con_maintenance_costs]", "Long term maintenance costs", get_answer("con_maintenance_costs") %>
+  <%= element "radio", "answers[con_maintenance_costs]", "Long-term maintenance costs", get_answer("con_maintenance_costs") %>
 
   <div class="row">
-    <div class="question five columns">Of these I am most concerned about potential...</div>
+    <div class="question five columns">Of these I am most concerned about...</div>
     <div class="answers seven columns">
       <%= select_tag "answers[con_top]", options_for_select([
         ["", ""],
@@ -57,7 +57,7 @@
         ["Privacy", "con_privacy"],
         ["Safety and Security", "con_safety"],
         ["Initial planning and building costs", "con_building_costs"],
-        ["Long term maintenance costs", "con_maintenance_costs"],
+        ["Long-term maintenance costs", "con_maintenance_costs"],
       ], get_answer("con_top")) %>
     </div>
   </div>
