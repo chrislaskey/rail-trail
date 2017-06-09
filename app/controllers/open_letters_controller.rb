@@ -13,7 +13,7 @@ class OpenLettersController < ApplicationController
   end
 
   def new
-    if current_user.open_letter.present?
+    if current_user.present? && current_user.open_letter.present?
       flash[:notice] = "Currently limited to one Open Letter per user"
       redirect_to edit_open_letter_path(current_user.open_letter)
     end

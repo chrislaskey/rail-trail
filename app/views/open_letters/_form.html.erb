@@ -1,5 +1,5 @@
 <%= form_for @open_letter do |form| %>
-  
+
   <div class="row">
     <div class="two columns">
       <%= form.label :title, "Title" %>
@@ -8,7 +8,7 @@
       <%= form.text_area :title %>
     </div>
   </div>
-  
+
   <div class="row">
     <div class="two columns">
       <%= form.label :body, "Body" %>
@@ -25,3 +25,20 @@
   </div>
 
 <% end %>
+
+<script>
+  $("#open_letter_body").trumbowyg({
+    btns: [
+      ["undo", "redo"],
+      ["formatting"],
+      "btnGrp-semantic",
+      ["link"],
+      ["insertImage"],
+      "btnGrp-lists",
+      ["horizontalRule"],
+      ["removeformat"],
+      ["fullscreen"]
+    ],
+    removeformatPasted: true
+  })
+</script>
