@@ -24,13 +24,17 @@ h4, h5, h6 {
   letter-spacing: 3px;
   margin: 0 0 2em 0;
   text-transform: uppercase;
+
+  a {
+    text-decoration: none;
+  }
 }
 
 a {
-  color: #9d1e9e;
+  color: #1eaedb;
 
   &:hover{
-    color: #9d1e9e;
+    color: #1eaedb;
   }
 }
 
@@ -126,6 +130,10 @@ ul li {
     margin: 3rem 0 2rem 0;
   }
 
+  .section-heading {
+    margin-bottom: 0.5rem;
+  }
+
   .radio-answers label {
     margin-right: 1rem;
     font-size: 1.25rem;
@@ -157,6 +165,20 @@ ul li {
     height: 35px;
     width: 35px;
   }
+
+  ul.open-letters {
+
+    li {
+
+      .title {
+        font-size: 2rem;
+
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+  }
 }
 
 .page-sidebar {
@@ -185,9 +207,9 @@ ul li {
 
   a {
     color: #fff;
-    
+
     &:hover {
-      color: #fff; 
+      color: #fff;
     }
   }
 

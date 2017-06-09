@@ -10,7 +10,17 @@
   <div class="page-content container">
     <%= render "layouts/alerts" %>
 
-    <%= @open_letter.title %>
-    <%= raw @open_letter.body %>
+    <h5 class="section-heading"><%= link_to "Open Letters", open_letters_path %></h5>
+    <div class="open-letter-container">
+      <h1 class="open-letter-title"><%= @open_letter.title %></h1>
+      <div class="open-letter-body"><%= raw @open_letter.body %></div>
+      <hr>
+      <div class="open-letter-author">
+        <p>
+          <strong><%= @open_letter.user %></strong><br/>
+          <em><%= @open_letter.updated_at.strftime("%B %d, %Y") %></em>
+        </p>
+      </div>
+    </div>
   </div>
 </div>

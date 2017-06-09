@@ -17,10 +17,10 @@
     </div>
     <h3>All Open Letters</h3>
     <% if @open_letters.present? %>
-    <ul>
+    <ul class="open-letters">
       <% @open_letters.map do |letter| %>
       <li>
-        <p><%= link_to letter.title, open_letter_path(letter) %></p>
+        <span class="title"><%= link_to letter.title, open_letter_path(letter) %></span>
       </li>
       <% end %>
     </ul>

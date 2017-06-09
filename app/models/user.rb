@@ -17,4 +17,8 @@ class User < ApplicationRecord
     last_sign_in_at ? time_ago_in_words(last_sign_in_at) + " ago" : "-"
   end
 
+  def to_s
+    name
+  end
+
 end
