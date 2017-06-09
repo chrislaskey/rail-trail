@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :open_letters, path: "open-letters"
+
   root to: "home#index"
 
 end

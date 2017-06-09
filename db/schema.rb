@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170507222545) do
+ActiveRecord::Schema.define(version: 20170609131557) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20170507222545) do
     t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
     t.index ["survey_id"], name: "index_answers_on_survey_id", using: :btree
     t.index ["user_id"], name: "index_answers_on_user_id", using: :btree
+  end
+
+  create_table "open_letters", force: :cascade do |t|
+    t.text     "title"
+    t.text     "body"
+    t.boolean  "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_open_letters_on_user_id", using: :btree
   end
 
   create_table "questions", force: :cascade do |t|
@@ -73,9 +83,20 @@ ActiveRecord::Schema.define(version: 20170507222545) do
     t.index ["uid"], name: "index_users_on_uid", unique: true, using: :btree
   end
 
+  create_table "versions", force: :cascade do |t|
+    t.string   "item_type",  null: false
+    t.integer  "item_id",    null: false
+    t.string   "event",      null: false
+    t.string   "whodunnit"
+    t.text     "object"
+    t.datetime "created_at"
+    t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
+  end
+
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "surveys"
   add_foreign_key "answers", "users"
+  add_foreign_key "open_letters", "users"
   add_foreign_key "questions", "surveys"
   add_foreign_key "surveys", "users"
 end
