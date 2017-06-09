@@ -1,5 +1,7 @@
 class OpenLettersController < ApplicationController
 
+  include ActionView::Helpers::SanitizeHelper
+
   before_action :set_paper_trail_whodunnit
   before_action :find_open_letter, only: [:show, :edit, :update]
 
@@ -61,6 +63,15 @@ class OpenLettersController < ApplicationController
     params.require(:open_letter).permit(
       :body,
       :title
-    )
+    ).tap do |items|
+      break unless items[:body].present?
+
+      items[:body] = sanitize(
+        items[:body],
+        tags: %w(br p h1 h2 h3 h4 h5 ul ol li strong em strike blockquote a img)
+      )
+
+      items
+    end
   end
 end
