@@ -3,7 +3,8 @@ class OpenLettersController < ApplicationController
   include ActionView::Helpers::SanitizeHelper
 
   before_action :set_paper_trail_whodunnit
-  before_action :find_open_letter, only: [:show, :edit, :update]
+  before_action :find_open_letter, only: [:show]
+  before_action :find_open_letter_by_user, only: [:edit, :update]
 
   caches_page :show
 
@@ -57,6 +58,10 @@ class OpenLettersController < ApplicationController
 
   def find_open_letter
     @open_letter ||= OpenLetter.find(params[:id])
+  end
+
+  def find_open_letter_by_user
+    @open_letter ||= OpenLetter.find_by(id: params[:id], user: current_user.id)
   end
 
   def open_letter_params

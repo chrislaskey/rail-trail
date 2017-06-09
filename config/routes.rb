@@ -15,7 +15,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :open_letters, path: "open-letters"
+  # The show endpoint is cached by NGINX, so need to submit updates
+  # to a different URI. Otherwise identical to a typical resource.
+  resources :open_letters, except: [:update], path: "open-letters" do
+    member do
+      patch :update, as: :update
+    end
+  end
 
   root to: "home#index"
 

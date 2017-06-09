@@ -1,4 +1,9 @@
-<%= form_for @open_letter do |form| %>
+<%=
+  form_for(
+    @open_letter,
+    url: @open_letter.persisted? ? update_open_letter_path(@open_letter) : open_letters_path
+  ) do |form|
+%>
 
   <div class="row">
     <div class="two columns">
