@@ -1,0 +1,30 @@
+<div class="page-lead">
+  <div class="page-heading">
+  </div>
+  <div class="page-actions"></div>
+</div>
+
+<%= render "layouts/alerts" %>
+
+<div class="page-main">
+  <div class="page-content container">
+    <div class="callout">
+      <h3>Share Your Perspective</h3>
+
+      <p>Are you a Swampscott community member? We'd love to hear your perspective.</p>
+
+      <p><a class="button" href="<%= new_open_letter_path %>">Write an Open Letter</a></p>
+    </div>
+    <h3>All Open Letters</h3>
+    <% if @open_letters.present? %>
+    <ul>
+      <% @open_letters.map do |letter| %>
+      <li>
+        <p><%= link_to letter.title, open_letter_path(letter) %></p>
+      </li>
+      <% end %>
+    </ul>
+    <% end %>
+  </div>
+</div>
+

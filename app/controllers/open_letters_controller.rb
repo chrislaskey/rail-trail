@@ -6,12 +6,18 @@ class OpenLettersController < ApplicationController
   caches_page :show
 
   def index
+    @open_letters = OpenLetter.all
   end
 
   def show
   end
 
   def new
+    if current_user.open_letter.present?
+      flash[:notice] = "Currently limited to one Open Letter per user"
+      redirect_to edit_open_letter_path(current_user.open_letter)
+    end
+
     @open_letter = OpenLetter.new
   end
 
@@ -20,6 +26,7 @@ class OpenLettersController < ApplicationController
     @open_letter.user = current_user
 
     if @open_letter.save
+      flash.clear
       redirect_to @open_letter
     else
       flash.now[:error] = @open_letter.errors.full_messages
@@ -32,6 +39,7 @@ class OpenLettersController < ApplicationController
 
   def update
     if @open_letter.update_attributes(open_letter_params)
+      flash.clear
       expire_page action: "show", id: @open_letter.id
       redirect_to @open_letter
     else

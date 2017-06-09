@@ -8,6 +8,9 @@ class User < ApplicationRecord
     other: 30
   }
 
+  has_many :open_letters
+  has_one :open_letter, ->(user) { OpenLetter.where(user: user.id) }
+
   validates :email, uniqueness: true
 
   def last_sign_in_ago
