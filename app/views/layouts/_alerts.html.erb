@@ -1,35 +1,37 @@
 <% if [:error, :notice, :success].any? {|type| type.present? } %>
-  <div class="page-alerts">
+  <div class="page-alerts row">
+    <div class="twelve columns">
 
-    <% if flash[:error].present? %>
-      <% flash[:error] = [flash[:error]] unless flash[:error].kind_of? Array %>
-      <% flash[:error].map do |message| %>
-        <div class="alert-danger">
-          <%= message %>
-          <a class="alert-close"></a>
-        </div>
+      <% if flash[:error].present? %>
+        <% flash[:error] = [flash[:error]] unless flash[:error].kind_of? Array %>
+        <% flash[:error].map do |message| %>
+          <div class="alert alert-danger">
+            <%= message %>
+            <a class="alert-close"></a>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
 
-    <% if flash[:notice].present? %>
-      <% flash[:notice] = [flash[:notice]] unless flash[:notice].kind_of? Array %>
-      <% flash[:notice].map do |message| %>
-        <div class="alert-primary">
-          <%= message %>
-          <a class="alert-close"></a>
-        </div>
+      <% if flash[:notice].present? %>
+        <% flash[:notice] = [flash[:notice]] unless flash[:notice].kind_of? Array %>
+        <% flash[:notice].map do |message| %>
+          <div class="alert alert-primary">
+            <%= message %>
+            <a class="alert-close"></a>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
 
-    <% if flash[:success].present? %>
-      <% flash[:success] = [flash[:success]] unless flash[:success].kind_of? Array %>
-      <% flash[:success].map do |message| %>
-        <div class="alert-success">
-          <%= message %>
-          <a class="alert-close"></a>
-        </div>
+      <% if flash[:success].present? %>
+        <% flash[:success] = [flash[:success]] unless flash[:success].kind_of? Array %>
+        <% flash[:success].map do |message| %>
+          <div class="alert alert-success">
+            <%= message %>
+            <a class="alert-close"></a>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
 
+    </div>
   </div>
 <% end %>

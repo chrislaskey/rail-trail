@@ -5,7 +5,7 @@
       <%= form.label :title, "Title" %>
     </div>
     <div class="ten columns">
-      <%= form.text_field :title %>
+      <%= form.text_field :title, class: "full-width" %>
     </div>
   </div>
 
@@ -14,12 +14,13 @@
       <%= form.label :body, "Body" %>
     </div>
     <div class="ten columns">
-      <%= form.text_area :body %>
+      <%= form.text_area :body, class: "full-width", rows: 8 %>
     </div>
   </div>
 
   <div class="row">
-    <div class="twelve columns">
+    <div class="two columns">&nbsp;</div>
+    <div class="ten columns">
       <%= form.submit %>
     </div>
   </div>

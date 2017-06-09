@@ -8,7 +8,7 @@ class OpenLettersController < ApplicationController
   caches_page :show
 
   def index
-    @open_letters = OpenLetter.all
+    @open_letters = OpenLetter.active?
   end
 
   def show

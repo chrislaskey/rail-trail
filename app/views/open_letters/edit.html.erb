@@ -5,10 +5,10 @@
   <div class="page-actions"></div>
 </div>
 
-<%= render "layouts/alerts" %>
-
 <div class="page-main">
   <div class="page-content container">
+    <%= render "layouts/alerts" %>
+
     <% if current_user.present? %>
       <%= render "open_letters/form" %>
     <% else %>

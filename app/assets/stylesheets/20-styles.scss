@@ -84,10 +84,12 @@ ul li {
 }
 
 .page-alerts {
-  padding: 2rem 2rem;
+  margin-bottom: 2rem;
 
   .alert {
+    border-radius: 3px;
     margin: 0 0 15px 0;
+    padding: 1rem 2rem;
 
     &:last-child {
       margin: 0;
@@ -197,4 +199,9 @@ ul li {
 
 .trumbowyg-button-pane {
   background: #f6f6f6 !important;
+}
+
+.full-width {
+  box-sizing: border-box;
+  width: 100%;
 }
