@@ -16,7 +16,6 @@ gem "omniauth-facebook"
 gem "paper_trail"
 gem "actionpack-page_caching"
 gem "turbolinks", "~> 5.0.0"
-gem "will_paginate", "~> 3.1.0"
 
 group :development, :test do
   gem "byebug", platform: :mri
