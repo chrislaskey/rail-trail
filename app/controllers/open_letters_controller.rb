@@ -64,12 +64,12 @@ class OpenLettersController < ApplicationController
       :body,
       :title
     ).tap do |items|
-      break unless items[:body].present?
-
-      items[:body] = sanitize(
-        items[:body],
-        tags: %w(br p h1 h2 h3 h4 h5 ul ol li strong em strike blockquote a img)
-      )
+      if items[:body].present?
+        items[:body] = sanitize(
+          items[:body],
+          tags: %w(br p h1 h2 h3 h4 h5 ul ol li strong em strike blockquote a img)
+        )
+      end
 
       items
     end
